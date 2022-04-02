@@ -1,6 +1,6 @@
 # Clinica Nilo FinalApp
 
-<img width="240px" src="./src/assets/capturas/ionic.png">
+<img width="240px" src="./README/ionic.png">
 
 ## Anteproyecto
 
