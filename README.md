@@ -16,6 +16,6 @@ Partirá de la aplicación presentada en el primer trimestre, e incluirá, entre
 
 ### Borrador de la aplicación
 
-<img scr="./README/figma.png">
+<img width="240px" scr="./README/figma.png">
 
 También se puede ver el fucionamiento de la aplicación en el vídeo de [este enlace](https://youtu.be/UODCABfGhTI).
