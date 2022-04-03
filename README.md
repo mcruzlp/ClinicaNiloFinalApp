@@ -16,6 +16,6 @@ Partirá de la aplicación presentada en el primer trimestre, e incluirá, entre
 
 ### Borrador de la aplicación
 
-<img width="240px" src="./README/ionic.png">
+<img width="240px" src="./README/figma.png">
 
 También se puede ver el fucionamiento de la aplicación en el vídeo de [este enlace](https://youtu.be/UODCABfGhTI).
