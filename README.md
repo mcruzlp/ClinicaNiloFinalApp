@@ -5,7 +5,7 @@
 ## Anteproyecto
 
 ### Objetivos
-Con este proyecto se pondrán en práctica los conocimientos que he adquirido durante mi formación en el CFGS en Desarrollo de Aplicaciones Multiplataforma, impartido en el IES Campanillas.
+Con este proyecto pondré en práctica los conocimientos que he adquirido durante mi formación en el CFGS en Desarrollo de Aplicaciones Multiplataforma, impartido en el IES Campanillas.
 
 Los requisitos académicos que debe cumplir se indican en [la Wiki de este repositorio](https://github.com/IESCampanillas/proyectos-dam-2022/wiki).
 
