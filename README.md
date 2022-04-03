@@ -15,3 +15,7 @@ Se trata de un software de gestión empresarial específico para una clínica de
 Partirá de la aplicación presentada en el primer trimestre, e incluirá, entre otras mejoras, el uso de Firebase para el almacenamiento de datos, el registro de usuarios, etc.
 
 ### Borrador de la aplicación
+
+<img scr=".README/figma.png">
+
+También se puede ver el fucionamiento de la aplicación en el vídeo de [este enlace](https://youtu.be/UODCABfGhTI).
