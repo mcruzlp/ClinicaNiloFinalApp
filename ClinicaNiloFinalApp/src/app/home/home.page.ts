@@ -9,8 +9,4 @@ export class HomePage {
 
   constructor() {}
 
-  openMenu(){
-    console.log();
-  }
-
 }
