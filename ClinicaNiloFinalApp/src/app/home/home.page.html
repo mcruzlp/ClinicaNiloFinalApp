@@ -1,6 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Clínica Nilo </ion-title>
+  <ion-toolbar id="toolbar">
+    <ion-button (click)="openMenu()">
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <span><ion-title>Clínica Nilo</ion-title></span>
+    <ion-button (click)="logout()" routerLink="/welcome">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -12,11 +18,11 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item>Mi cuenta</ion-item>
-      <ion-item>Citas</ion-item>
+      <ion-item routerLink="/profile">Mi cuenta</ion-item>
+      <ion-item routerLink="/appnt-list">Citas</ion-item>
       <ion-item>Menu Item</ion-item>
       <ion-item>Menu Item</ion-item>
-      <ion-item>Cerrar sesión</ion-item>
+      <ion-item routerLink="/login">Cerrar sesión</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -24,42 +30,47 @@
 <ion-router-outlet id="main"></ion-router-outlet>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-button (click)="openMenu()">
-        <ion-icon slot="start" name="menu"></ion-icon>
-      </ion-button>
-      <span> <ion-title>Clínica Nilo</ion-title></span>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
+    <div class="top">
+      <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img
+          src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+        />
+      </ion-avatar>
+      <ion-label>
+        <h3>Mi nombre</h3>
+        <p>@miusuario</p>
+      </ion-label>
+    </ion-item>
+    </div>
+
+
     <ion-card id="nextAppnt">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Mis citas</ion-title>
+          <ion-title>Mis próximas citas</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-list> {{ appointments | async | json }} </ion-list>
     </ion-card>
 
-    <ion-button (click)="addAppointment()" shape="round">
-      Añadir cita
+    <ion-button (click)="addAppointment()" routerLink="/create-appnt" shape="round">
+      Reservar cita
     </ion-button>
   </div>
 </ion-content>
 
 <ion-footer collapse="fade">
   <ion-toolbar id="footer">
-    <ion-button (click)="myAppntmts()">
+    <ion-button (click)="myAppntmts()" routerLink="/appnt-list">
       <ion-icon slot="icon-only" name="calendar"></ion-icon>
     </ion-button>
-    <ion-button (click)="goHome()">
-      <ion-icon slot="icon-only" name="home"></ion-icon>
-    </ion-button>
+<!--     <ion-button (click)="goHome()">
+      <ion-icon slot="icon-only" name="home" routerLink="/"></ion-icon>
+    </ion-button> -->
     <ion-button (click)="messages()">
-      <ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+      <ion-icon slot="icon-only" name="chatbubbles-outline" routerLink="/contact"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-footer>
-

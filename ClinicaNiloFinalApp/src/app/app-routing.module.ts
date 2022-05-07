@@ -39,6 +39,7 @@ const routes: Routes = [
         (m) => m.AppntFormPageModule
       ),
   },
+
   {
     path: 'edit-appnt/:id',
     loadChildren: () =>
@@ -46,6 +47,19 @@ const routes: Routes = [
         (m) => m.AppntFormPageModule
       ),
   },
+  {
+    path: 'appnt-list',
+    loadChildren: () => import('./pages/appnt-list/appnt-list.module').then( m => m.AppntListPageModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+
 ];
 
 @NgModule({

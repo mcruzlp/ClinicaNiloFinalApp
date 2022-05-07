@@ -38,4 +38,6 @@ export class HomePage {
   goHome() {}
 
   messages() {}
+
+  logout() {}
 }
