@@ -1,9 +1,23 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>appnt-list</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+<ion-list>
+    <ion-item *ngFor="let appnt of appntService.getAppointments() | async">
+      <ion-label class="item">{{ appnt.date | date: "dd/MM" }}</ion-label>
+    <!--<ion-label class="item">{{ a.hour | date:'HH:mm'}}</ion-label>-->
+    <!-- <ion-label class="item">{{ appnt.patient }}</ion-label> -->
+    <ion-button routerLink="/edit-appnt">
+      <ion-icon name="pencil"></ion-icon>
+    </ion-button>
+    <ion-button >
+      <ion-icon name="trash" (click)="appntService.presentAlertConfirm(appnt)"></ion-icon>
+    </ion-button>
+    </ion-item>
+</ion-list>
 
 </ion-content>

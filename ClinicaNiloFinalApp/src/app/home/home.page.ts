@@ -1,7 +1,6 @@
 import { Appointment } from './../model/appointment';
 import { AppntService } from './../services/appnt.service';
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,27 +9,20 @@ import { Observable } from 'rxjs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  title = 'Clínica Nilo';
+
   appointments: Observable<Appointment[]>;
 
-  constructor(
-    private appntService: AppntService,
-    private menu: MenuController
-  ) {
+  constructor(public appntService: AppntService) {
     this.appointments = this.appntService.getAppointments();
   }
 
-  openMenu() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  addAppointment() {
-    const appointment = {
-      date: '02/07/2022',
-      hour: '17:00',
+  addItem() {
+    const appnt = {
+      date: '14/03/2023',
+      hour: '18:00',
     };
-
-    this.appntService.addAppointment(appointment);
+    this.appntService.addAppointment(appnt);
   }
 
   myAppntmts() {}
@@ -38,6 +30,4 @@ export class HomePage {
   goHome() {}
 
   messages() {}
-
-  logout() {}
 }

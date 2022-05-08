@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { Appointment } from './../model/appointment';
 import {
   collection,
@@ -16,7 +17,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  constructor(private firestore: Firestore) {}
+  constructor(
+    private firestore: Firestore,
+    private alertController: AlertController
+  ) {}
 
   async addAppointment(appointment: Appointment) {
     try {
@@ -34,6 +38,31 @@ export class AppntService {
     return collectionData(collection(this.firestore, 'appointments'), {
       idField: 'appntId',
     }) as Observable<Appointment[]>;
+  }
+
+  async presentAlertConfirm(appointment: Appointment) {
+    const alert = await this.alertController.create({
+      header: 'Cancelar',
+      message: '¿Estás seguro que quieres cancelar esta cita?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: (blah) => {
+            console.log('Confirm Cancel: yes');
+          },
+        },
+        {
+          text: 'Aceptar',
+          handler: () => {
+            this.deleteAppointment(appointment.appntId);
+            console.log('Confirm Ok');
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   async deleteAppointment(id: string) {

@@ -1,0 +1,9 @@
+<ion-toolbar id="toolbar">
+    <ion-button (click)="openMenu()">
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <span><ion-title>{{title}}</ion-title></span>
+    <ion-button (click)="logout()" routerLink="/welcome">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+</ion-toolbar>

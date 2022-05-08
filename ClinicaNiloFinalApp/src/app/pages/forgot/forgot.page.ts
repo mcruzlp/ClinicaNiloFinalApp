@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot.page.scss'],
 })
 export class ForgotPage implements OnInit {
+  title = 'Recuperar contraseña';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
