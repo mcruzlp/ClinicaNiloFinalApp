@@ -40,42 +40,6 @@ export class AppntService {
     }) as Observable<Appointment[]>;
   }
 
-  async presentAlertConfirm(appointment: Appointment) {
-    const alert = await this.alertController.create({
-      header: 'Cancelar',
-      message: '¿Estás seguro que quieres cancelar esta cita?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: (blah) => {
-            console.log('Confirm Cancel: yes');
-          },
-        },
-        {
-          text: 'Aceptar',
-          handler: () => {
-            this.deleteAppointment(appointment.appntId);
-            console.log('Confirm Ok');
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-  }
-
-  async deleteAppointment(id: string) {
-    await deleteDoc(doc(this.firestore, `appointments/${id}`));
-  }
-
-  async updateAppointment(appointment: Appointment) {
-    await setDoc(
-      doc(this.firestore, `appointments/${appointment.appntId}`),
-      appointment
-    );
-  }
-
   getAppointment(id: string): Observable<Appointment> {
     return docData(doc(this.firestore, `appointments/${id}`), {
       idField: 'appntId',

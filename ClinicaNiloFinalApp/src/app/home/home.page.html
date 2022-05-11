@@ -27,13 +27,18 @@
           <ion-title>Mis próximas citas</ion-title>
         </ion-toolbar>
       </ion-header>
-      <!-- Filtrar las dos primeras citas disponibles -->
-      <ion-list> {{ appointments | async }} </ion-list>
+      <!-- Mostrar sólo las dos primeras citas disponibles -->
+      <ion-list *ngFor="let appnt of appointments | async">
+        <ion-item>
+          <ion-label class="item">{{ appnt.date }}</ion-label>
+          <ion-label class="item">{{ appnt.hour }}</ion-label>
+        </ion-item>
+      </ion-list>
 
       <!-- Se prodrían añadir los especialistas más visitados -->
     </ion-card>
 
-    <ion-button (click)="addItem()" shape="round">
+    <ion-button (click)="addAppnt()" shape="round">
       Pedir cita
     </ion-button>
   </div>
@@ -50,6 +55,7 @@
   </ion-tab-button>
   <!-- <ion-tab-button tab="chat" routerLink="/contact">
     <ion-label>Mensajes</ion-label>
+    <ion-badge color="danger">2</ion-badge>
     <ion-icon name="chatbubbles-outline"></ion-icon>
   </ion-tab-button> -->
 </ion-tab-bar>

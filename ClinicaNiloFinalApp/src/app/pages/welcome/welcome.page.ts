@@ -7,14 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
-
-  register() {
-  }
-
-  login() {}
-
 }
