@@ -27,6 +27,8 @@ Tras entregar el anteproyecto, he acudido a tutoría con Luís y hemos concretad
 Debido a lo anterior, habrá que añadir al prototipo diseñado en Figma la interfaz de visualización para el rol de paciente.
 
 ### Checkpoint 13/05/2022
+[Vídeo](https://youtu.be/BpodOzBccV4)
+
 En este punto se han incluido las funcionalidades de añadir cita, registro de usuarios, login y logout.
 Las restricciones de usuario se han desabilitado en esta primera versión por fallos en el almacenaje y en la recuperación de las colecciones de datos relativas a cada cuenta.
 
