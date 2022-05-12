@@ -1,5 +1,16 @@
 <ion-header [translucent]="true">
-  <app-topnav></app-topnav>
+  <!-- <app-topnav></app-topnav> -->
+  <ion-toolbar id="toolbar">
+    <ion-button (click)="openMenu()">
+      <ion-icon name="menu"></ion-icon>
+    </ion-button>
+    <span>
+      <ion-title>{{title}}</ion-title>
+    </span>
+    <ion-button (click)="logout()" routerLink="/welcome">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
 </ion-header>
 
 <app-menu></app-menu>
@@ -24,7 +35,7 @@
     <ion-card id="nextAppnt">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Mis próximas citas</ion-title>
+          <ion-title>Próximas citas</ion-title>
         </ion-toolbar>
       </ion-header>
       <!-- Mostrar sólo las dos primeras citas disponibles -->
@@ -32,6 +43,12 @@
         <ion-item>
           <ion-label class="item">{{ appnt.date }}</ion-label>
           <ion-label class="item">{{ appnt.hour }}</ion-label>
+          <!-- <ion-button routerLink="/edit-appnt">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon name="trash"></ion-icon>
+          </ion-button> -->
         </ion-item>
       </ion-list>
 
@@ -44,7 +61,7 @@
   </div>
 </ion-content>
 
-<ion-tab-bar slot="bottom">
+<!--<ion-tab-bar slot="bottom">
   <ion-tab-button tab="calendar" routerLink="/appnt-list">
     <ion-label>Citas</ion-label>
     <ion-icon name="calendar"></ion-icon>
@@ -53,9 +70,9 @@
     <ion-label>Inicio</ion-label>
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
-  <!-- <ion-tab-button tab="chat" routerLink="/contact">
+  <ion-tab-button tab="chat" routerLink="/contact">
     <ion-label>Mensajes</ion-label>
     <ion-badge color="danger">2</ion-badge>
     <ion-icon name="chatbubbles-outline"></ion-icon>
-  </ion-tab-button> -->
-</ion-tab-bar>
+  </ion-tab-button>
+</ion-tab-bar>-->

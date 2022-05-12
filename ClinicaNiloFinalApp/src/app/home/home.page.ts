@@ -2,6 +2,7 @@ import { AlertController } from '@ionic/angular';
 import { Appointment } from './../model/appointment';
 import { AppntService } from './../services/appnt.service';
 import { Component } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -18,6 +19,7 @@ export class HomePage {
   constructor(
     public appntService: AppntService,
     private alertController: AlertController,
+    private menu: MenuController,
     private router: Router
   ) {
     this.appointments = this.appntService.getAppointments();
@@ -30,4 +32,11 @@ export class HomePage {
     };
     this.appntService.addAppointment(appnt);
   }
+
+  openMenu() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
+
+  logout() {}
 }
