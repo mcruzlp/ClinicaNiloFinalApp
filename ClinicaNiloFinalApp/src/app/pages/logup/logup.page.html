@@ -8,5 +8,35 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-label>Correo electrónico</ion-label>
+        <ion-input clearInput class="text" [(ngModel)]="email">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label>Contraseña</ion-label>
+        <ion-input clearInput class="text" type="password" [(ngModel)]="password">
+        </ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button expand="block" class="text capitalize" shape="round" (click)="register()">
+    Aceptar
+  </ion-button>
+  <ion-button expand="block" class="text capitalize" color="danger" shape="round" href="/login">
+    Cancelar
+  </ion-button>
+
+  <a href="/login">
+    ¿Ya tienes cuenta?
+  </a>
+  <br>
+  <a href="/forgot">
+    ¿Has olvidado tu contraseña?
+  </a>
 
 </ion-content>

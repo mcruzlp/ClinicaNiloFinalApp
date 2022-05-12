@@ -16,7 +16,7 @@
         <ion-label>
           <h3>Mi nombre</h3>
           <p>@miusuario</p>
-          <!-- se podrían añadir contadores de total de citas, o total pagado... -->
+          <!-- se podrían añadir contadores de total de citas, total pagado... -->
         </ion-label>
       </ion-item>
     </div>
@@ -24,38 +24,49 @@
     <ion-card id="nextAppnt">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Mis próximas citas</ion-title>
+          <ion-title>Próximas citas</ion-title>
+          <ion-button slot="end" (click)="addAppnt()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
         </ion-toolbar>
       </ion-header>
-      <!-- Mostrar sólo las dos primeras citas disponibles -->
+      <!-- TODO: Mostrar sólo las dos primeras citas disponibles -->
       <ion-list *ngFor="let appnt of appointments | async">
-        <ion-item>
+        <ion-item><ion-icon slot="end" name="pencil"></ion-icon>
+          <ion-icon slot="end" name="trash"></ion-icon>
           <ion-label class="item">{{ appnt.date }}</ion-label>
           <ion-label class="item">{{ appnt.hour }}</ion-label>
         </ion-item>
       </ion-list>
-
-      <!-- Se prodrían añadir los especialistas más visitados -->
     </ion-card>
 
-    <ion-button (click)="addAppnt()" shape="round">
-      Pedir cita
-    </ion-button>
+    <!-- <ion-card id="myDocs">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Especialistas</ion-title>
+          <ion-button slot="end" (click)="addAppnt()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-toolbar>
+      </ion-header>
+      <ion-list *ngFor="let doc of specialists | async">
+        <ion-item>
+          <ion-label class="item">{{ doc.avatar }}</ion-label>
+          <ion-label class="item">{{ doc.name }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card> -->
   </div>
 </ion-content>
 
-<ion-tab-bar slot="bottom">
-  <ion-tab-button tab="calendar" routerLink="/appnt-list">
-    <ion-label>Citas</ion-label>
-    <ion-icon name="calendar"></ion-icon>
-  </ion-tab-button>
+<!-- <ion-tab-bar slot="bottom">
   <ion-tab-button tab="home" routerLink="/">
     <ion-label>Inicio</ion-label>
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
-  <!-- <ion-tab-button tab="chat" routerLink="/contact">
+  <ion-tab-button tab="chat" routerLink="/contact">
     <ion-label>Mensajes</ion-label>
     <ion-badge color="danger">2</ion-badge>
     <ion-icon name="chatbubbles-outline"></ion-icon>
-  </ion-tab-button> -->
-</ion-tab-bar>
+  </ion-tab-button>
+</ion-tab-bar> -->

@@ -1,4 +1,4 @@
-<ion-menu side="start" menuId="first" contentId="main">
+<ion-menu side="start" menuId="main-menu" contentId="main">
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Menú</ion-title>
@@ -7,10 +7,9 @@
   <ion-content>
     <ion-list>
       <ion-item routerLink="/profile">Mi perfil</ion-item>
-      <ion-item routerLink="/appnt-list">Citas</ion-item>
       <!-- <ion-item>Menu Item</ion-item>
       <ion-item>Menu Item</ion-item> -->
-      <ion-item routerLink="/login">Cerrar sesión</ion-item>
+      <ion-item routerLink="/login" (click)="logout()">Cerrar sesión</ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>

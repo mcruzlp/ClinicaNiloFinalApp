@@ -1,4 +1,8 @@
+import { Appointment } from './../../model/appointment';
+import { AppntService } from './../../services/appnt.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appnt-form',
@@ -8,7 +12,14 @@ import { Component, OnInit } from '@angular/core';
 export class AppntFormPage implements OnInit {
   title = 'Cita';
 
-  constructor() {}
+  appointment: Appointment = { appntId: '', date: '', hour: '' };
+
+  constructor(public appntService: AppntService, private router: Router) {}
 
   ngOnInit() {}
+
+  addAppnt() {
+    this.appntService.addAppnt(this.appointment);
+    this.router.navigateByUrl('/home');
+  }
 }

@@ -14,20 +14,18 @@ export class HomePage {
   title = 'Clínica Nilo';
 
   appointments: Observable<Appointment[]>;
+  /* specialists: Observable<Specialist[]>; */
+
 
   constructor(
     public appntService: AppntService,
     private alertController: AlertController,
     private router: Router
   ) {
-    this.appointments = this.appntService.getAppointments();
+    this.appointments = this.appntService.getAppnts();
   }
 
   addAppnt() {
-    const appnt = {
-      date: '14/03/2023',
-      hour: '18:00',
-    };
-    this.appntService.addAppointment(appnt);
+    this.router.navigateByUrl('/create-appnt');
   }
 }
