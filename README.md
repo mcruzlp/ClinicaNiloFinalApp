@@ -33,7 +33,7 @@ Las restricciones de usuario se han desabilitado en esta primera versión por fa
 Además, se incluiran las opciones de completar el perfil de usuario, edición y borrado de las citas, elección de especialista médico y la restricción de citas disponibles según la disponibilidad del especialista. También se quiere incluir un módulo de comunicación entre médicos y pacientes dentro de la aplicación.
 También se modificará el diseño de la interfaz para que coincida con el del borrador.
 
-Descarga la [APK](.android/app/build/outputs/apk/debug/app-debug.apk) de la aplicación
+Descarga la [APK](./README/clinica.apk) de la aplicación
 
 ### Bibliografía
 
