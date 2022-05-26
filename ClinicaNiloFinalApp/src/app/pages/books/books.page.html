@@ -11,16 +11,16 @@
   <ion-list>
     <ion-item>
       <ion-label>Especialista</ion-label>
-      <ion-select placeholder="Selecciona especialista" >
-        <ion-select-option *ngFor="let d of doctors | async" value="d.dName">{{d.dName}}</ion-select-option>
+      <!--       <ion-select placeholder="Selecciona especialista" >
+        <ion-select-option *ngFor="let d of doctors | async" [(ngModel)]="d.dName">{{d.dName}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Especialista</ion-label>
+      <ion-label>Cita</ion-label>
       <ion-select placeholder="Selecciona cita">
-        <ion-select-option *ngFor="let appnt of appointments | async">{{appnt.date}}  {{appnt.hour}}</ion-select-option>
-        <!-- Hay que poner aquí que cuando marque la cita, recoja el id -->
-      </ion-select>
+        <ion-select-option *ngFor="let appnt of appntsByDoctor | async">{{appnt.date}}  {{appnt.hour}}</ion-select-option>
+
+      </ion-select> -->
     </ion-item>
   </ion-list>
   <ion-button expand="full" (click)="updateAppnt()">

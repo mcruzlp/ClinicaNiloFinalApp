@@ -7,15 +7,16 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-appnt-form',
-  templateUrl: './appnt-form.page.html',
-  styleUrls: ['./appnt-form.page.scss'],
+  selector: 'app-books',
+  templateUrl: './books.page.html',
+  styleUrls: ['./books.page.scss'],
 })
-export class AppntFormPage implements OnInit {
-  title = 'Cita';
+export class BooksPage implements OnInit {
+  title = 'Reservar cita';
 
-  appointments: Observable<Appointment[]> = this.appntService.getAppnts();
-  appointment: Observable<Appointment> = this.appntService.getAppnt(id);
+  appointment: Appointment;
+  /* appntsByDoctor: Observable<Appointment[]> =
+    this.appntService.getAppntsByDoctor(); */
 
   doctors: Observable<Doctor[]> = this.doctorService.getDoctors();
 
@@ -28,7 +29,7 @@ export class AppntFormPage implements OnInit {
   ngOnInit() {}
 
   updateAppnt() {
-    this.appntService.updateAppnt(this.appointment.appntId);
+    this.appntService.updateAppnt(this.appointment);
     this.router.navigateByUrl('/home');
   }
 }

@@ -27,7 +27,7 @@ export class HomePage {
     private router: Router
   ) {}
 
-  addAppnt() {
-    this.router.navigateByUrl('/create-appnt');
+  bookAppnt() {
+    this.router.navigateByUrl('/books');
   }
 }

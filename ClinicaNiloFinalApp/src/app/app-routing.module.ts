@@ -52,37 +52,16 @@ const routes: Routes = [
     data: { authGuardPipe: redirectLoggedInToHome },
   },
   {
-    path: 'create-appnt',
-    loadChildren: () =>
-      import('./pages/appnt-form/appnt-form.module').then(
-        (m) => m.AppntFormPageModule
-      ),
-    canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-
-  {
-    path: 'edit-appnt/:id',
-    loadChildren: () =>
-      import('./pages/appnt-form/appnt-form.module').then(
-        (m) => m.AppntFormPageModule
-      ),
-    canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: 'contact',
-    loadChildren: () =>
-      import('./pages/contact/contact.module').then((m) => m.ContactPageModule),
-    canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
     path: 'profile',
     loadChildren: () =>
       import('./pages/profile/profile.module').then((m) => m.ProfilePageModule),
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('./pages/books/books.module').then((m) => m.BooksPageModule),
   },
   {
     path: '**',

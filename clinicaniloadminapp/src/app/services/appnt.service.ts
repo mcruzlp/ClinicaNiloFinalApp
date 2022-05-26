@@ -1,4 +1,3 @@
-import { AlertController } from '@ionic/angular';
 import { Appointment } from './../model/appointment';
 import { AuthService } from './auth.service';
 import {
@@ -26,9 +25,8 @@ export class AppntService {
 
   constructor(
     private firestore: Firestore,
-    private alertController: AlertController,
     public auth: AuthService,
-    public doctorService: DoctorService
+    /* public doctorService: DoctorService */
   ) {}
 
   async addAppnt(appointment: Appointment) {
@@ -55,7 +53,7 @@ export class AppntService {
     }) as Observable<Appointment>;
   }
 
-/*   getAppntsByDoctor(dName: string): Observable<Appointment[]> {
+  /*   getAppntsByDoctor(dName: string): Observable<Appointment[]> {
     return collectionData(collection(this.firestore, this.pathToAppnts), {
       idField: 'dName',
     }) as Observable<Appointment[]>;

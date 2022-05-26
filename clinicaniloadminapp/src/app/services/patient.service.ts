@@ -1,4 +1,3 @@
-import { AlertController } from '@ionic/angular';
 import { Patient } from './../model/patient';
 import { AuthService } from './auth.service';
 import {
@@ -22,7 +21,6 @@ export class PatientService {
 
   constructor(
     private firestore: Firestore,
-    private alertController: AlertController,
     public auth: AuthService
   ) {}
 

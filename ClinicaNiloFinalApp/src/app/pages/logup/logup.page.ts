@@ -13,19 +13,18 @@ import { Router } from '@angular/router';
 export class LogupPage implements OnInit {
   title = 'Registro';
 
-  email: string;
   password: string;
 
-  /* patient: Patient = {
-    patientId: '',
+  patient: Patient = {
     pName: '',
     pLastN: '',
     pDNI: '',
     pBDate: '',
     pTlfn: '',
     pAddr: '',
-    pEmail: this.email,
-    pRegDate: ''}; */
+    pEmail: '',
+    pFee: '',/*,
+    pRegDate: '' */};
 
   constructor(
     private alertController: AlertController,
@@ -38,12 +37,12 @@ export class LogupPage implements OnInit {
 
   async register() {
     const registerSuccess = await this.authService.register(
-      this.email,
+      this.patient.pEmail,
       this.password
     );
     if (registerSuccess) {
       this.router.navigateByUrl('/home');
-      /* this.patientService.addPatient(this.patient); */
+      this.patientService.addPatient(this.patient);
     } else {
       this.presentAlert();
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "clinicanilo-94c6f": {
+      "hosting": {
+        "clinicaniloadminapp": [
+          "clinicanilo-94c6f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "clinicanilo-94c6f"
+  }
+}
