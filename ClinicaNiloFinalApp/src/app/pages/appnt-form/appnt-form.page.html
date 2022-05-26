@@ -10,19 +10,20 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <ion-label position="floating">Fecha</ion-label>
-      <ion-input clearInput [(ngModel)]="appointment.date"></ion-input>
+      <ion-label>Especialista</ion-label>
+      <ion-select placeholder="Selecciona especialista" >
+        <ion-select-option *ngFor="let d of doctors | async" value="d.dName">{{d.dName}}</ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Hora</ion-label>
-      <ion-input clearInput [(ngModel)]="appointment.hour"></ion-input>
+      <ion-label>Especialista</ion-label>
+      <ion-select placeholder="Selecciona cita">
+        <ion-select-option *ngFor="let appnt of appointments | async">{{appnt.date}}  {{appnt.hour}}</ion-select-option>
+        <!-- Hay que poner aquí que cuando marque la cita, recoja el id -->
+      </ion-select>
     </ion-item>
-<!--     <ion-item>
-      <ion-label position="floating">Especialista</ion-label>
-      <ion-input clearInput [(ngModel)]="appointment.doctor"></ion-input>
-    </ion-item> -->
   </ion-list>
-  <ion-button expand="full" (click)="addAppnt()">
+  <ion-button expand="full" (click)="updateAppnt()">
     Guardar
   </ion-button>
 </ion-content>

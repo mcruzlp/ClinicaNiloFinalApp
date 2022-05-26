@@ -30,6 +30,10 @@ export class AuthService {
     return getAuth().currentUser;
   }
 
+  getUserEmail() {
+    return getAuth().currentUser.email;
+  }
+
   logout() {
     signOut(this.auth);
   }

@@ -1,6 +1,8 @@
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Patient } from './../../model/patient';
+import { PatientService } from 'src/app/services/patient.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,10 +16,22 @@ export class LogupPage implements OnInit {
   email: string;
   password: string;
 
+  /* patient: Patient = {
+    patientId: '',
+    pName: '',
+    pLastN: '',
+    pDNI: '',
+    pBDate: '',
+    pTlfn: '',
+    pAddr: '',
+    pEmail: this.email,
+    pRegDate: ''}; */
+
   constructor(
+    private alertController: AlertController,
     public authService: AuthService,
+    public patientService: PatientService,
     private router: Router,
-    private alertController: AlertController
   ) {}
 
   ngOnInit() {}
@@ -29,6 +43,7 @@ export class LogupPage implements OnInit {
     );
     if (registerSuccess) {
       this.router.navigateByUrl('/home');
+      /* this.patientService.addPatient(this.patient); */
     } else {
       this.presentAlert();
     }
@@ -37,17 +52,9 @@ export class LogupPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Conexión fallida',
       subHeader: 'No se ha podido completar el registro',
-      message:
-        'El correo electrónico y la contraseña proporcionados no son válidos.',
+      message: 'El correo electrónico y/o la contraseña no son válidos.',
       buttons: ['Aceptar'],
     });
     await alert.present();
   }
-
-/*
-register() {
-    this.authService
-      .register(this.email, this.password)
-      .then(() => this.router.navigateByUrl('/home'));
-  } */
 }

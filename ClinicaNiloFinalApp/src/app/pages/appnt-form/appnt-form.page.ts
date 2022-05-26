@@ -1,6 +1,8 @@
 import { Appointment } from './../../model/appointment';
 import { AppntService } from './../../services/appnt.service';
 import { Component, OnInit } from '@angular/core';
+import { Doctor } from './../../model/doctor';
+import { DoctorService } from './../../services/doctor.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -12,14 +14,21 @@ import { Router } from '@angular/router';
 export class AppntFormPage implements OnInit {
   title = 'Cita';
 
-  appointment: Appointment = { appntId: '', date: '', hour: '' };
+  appointments: Observable<Appointment[]> = this.appntService.getAppnts();
+  appointment: Observable<Appointment> = this.appntService.getAppnt(id);
 
-  constructor(public appntService: AppntService, private router: Router) {}
+  doctors: Observable<Doctor[]> = this.doctorService.getDoctors();
+
+  constructor(
+    public appntService: AppntService,
+    public doctorService: DoctorService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
-  addAppnt() {
-    this.appntService.addAppnt(this.appointment);
+  updateAppnt() {
+    this.appntService.updateAppnt(this.appointment.appntId);
     this.router.navigateByUrl('/home');
   }
 }

@@ -1,9 +1,13 @@
 import { AlertController } from '@ionic/angular';
 import { Appointment } from './../model/appointment';
 import { AppntService } from './../services/appnt.service';
+import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Patient } from './../model/patient';
+import { PatientService } from './../services/patient.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -13,17 +17,15 @@ import { Router } from '@angular/router';
 export class HomePage {
   title = 'Clínica Nilo';
 
-  appointments: Observable<Appointment[]>;
-  /* specialists: Observable<Specialist[]>; */
-
+  appointments: Observable<Appointment[]> = this.appntService.getAppnts();
 
   constructor(
-    public appntService: AppntService,
+    private appntService: AppntService,
+    private authService: AuthService,
     private alertController: AlertController,
+    private patientService: PatientService,
     private router: Router
-  ) {
-    this.appointments = this.appntService.getAppnts();
-  }
+  ) {}
 
   addAppnt() {
     this.router.navigateByUrl('/create-appnt');

@@ -11,6 +11,8 @@ import {
   setDoc,
   docData,
 } from '@angular/fire/firestore';
+import { Doctor } from './../model/doctor';
+import { DoctorService } from './doctor.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,18 +20,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  pathToAppnts = `users/${this.auth.getCurrentUser().uid}/appointments`;
+  pathToAppnts = `appointments/`;
 
   constructor(
     private firestore: Firestore,
     private alertController: AlertController,
-    public auth: AuthService
+    public auth: AuthService,
+    public doctorService: DoctorService
   ) {}
 
   async addAppnt(appointment: Appointment) {
     try {
       const docRef = await addDoc(
-        collection(this.firestore, 'pathToAppnts'),
+        collection(this.firestore, this.pathToAppnts),
         appointment
       );
       console.log('Document written with ID: ', docRef.id);

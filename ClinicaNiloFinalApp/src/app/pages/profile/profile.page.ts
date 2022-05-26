@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Patient } from './../../model/patient';
+import { PatientService } from './../../services/patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProfilePage implements OnInit {
   title = 'Mi perfil';
 
-  constructor() {}
+  patient: Patient;
+
+  constructor(public patientService: PatientService, private router: Router) {}
 
   ngOnInit() {}
 }
