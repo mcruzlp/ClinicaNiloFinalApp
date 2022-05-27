@@ -10,8 +10,6 @@ import {
   setDoc,
   docData,
 } from '@angular/fire/firestore';
-import { Doctor } from './../model/doctor';
-import { DoctorService } from './doctor.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -25,15 +23,15 @@ export class AppntService {
 
   constructor(
     private firestore: Firestore,
-    public auth: AuthService,
-    /* public doctorService: DoctorService */
-  ) {}
+    public auth: AuthService
+  ) /* public doctorService: DoctorService */
+  {}
 
-  async addAppnt(appointment: Appointment) {
+  async addAppnt(appnt: Appointment) {
     try {
       const docRef = await addDoc(
         collection(this.firestore, this.pathToAppnts),
-        appointment
+        appnt
       );
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
@@ -63,10 +61,10 @@ export class AppntService {
     await deleteDoc(doc(this.firestore, `${this.pathToAppnts}/${id}`));
   }
 
-  async updateAppnt(appointment: Appointment) {
+  async updateAppnt(appnt: Appointment) {
     await setDoc(
-      doc(this.firestore, `${this.pathToAppnts}/${appointment.appntId}`),
-      appointment
+      doc(this.firestore, `${this.pathToAppnts}/${appnt.appntId}`),
+      appnt
     );
   }
 }

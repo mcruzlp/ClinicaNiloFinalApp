@@ -4,9 +4,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PatientsComponent } from './components/patients/patients.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+
+//firebase
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -21,19 +24,25 @@ import { DialogModule } from 'primeng/dialog';
 import { DividerModule } from 'primeng/divider';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
-import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { SpeedDialModule } from 'primeng/speeddial';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
+import { TabViewModule } from 'primeng/tabview';
+import { ToolbarModule } from 'primeng/toolbar';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
+import { AppntsComponent } from './components/appnts/appnts.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    PatientsComponent,
+    AppntsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +61,13 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     DividerModule,
     InputNumberModule,
     InputTextModule,
-    MenubarModule,
     PanelModule,
     ScrollPanelModule,
+    SpeedDialModule,
     SplitButtonModule,
     TableModule,
+    TabViewModule,
+    ToolbarModule,
     VirtualScrollerModule,
   ],
   providers: [],

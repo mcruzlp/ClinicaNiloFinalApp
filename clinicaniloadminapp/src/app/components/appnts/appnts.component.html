@@ -1,0 +1,111 @@
+  <div class="add-button">
+    <p-speedDial title="Add product" (click)="displayAppntForm = true"></p-speedDial>
+  </div>
+<p-table [value]="(appnts | async)!" [paginator]="true" [rows]="7">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="patientDNI">
+        DNI <p-sortIcon field="patientDNI"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientName">
+        Nombre <p-sortIcon field="patientName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientLastName">
+        Apellidos <p-sortIcon field="patientLastName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientAge">
+        F. Nacimiento <p-sortIcon field="patientAge"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientEmail">
+        Email <p-sortIcon field="patientEmail"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientTlfn">
+        Teléfono <p-sortIcon field="patientTlfn"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientAddress">
+        Dirección <p-sortIcon field="patientAddress"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientPrice">
+        Tarifa <p-sortIcon field="patientPrice"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-a>
+    <tr>
+      <td>{{ a.appntId }}</td>
+      <td>{{ a.pName }}</td>
+      <td>{{ a.dName }}</td>
+      <td>{{ a.date }}</td>
+      <td>{{ a.hour }}</td>
+      <td>{{ a.notes }}</td>
+      <td>
+        <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
+          (click)="updateAppntStep1(a.appntId)"></button>
+      </td>
+      <td>
+        <button pButton type="button" icon="pi pi-trash" class="p-button-rounded"
+          (click)="appntService.deleteAppnt(a.appntId)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<!-- Form dialog-->
+<p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw' }">
+  <ng-template pTemplate="header"> Product </ng-template>
+
+  <form [formGroup]="appntForm" (ngSubmit)="formSubmit()">
+    <div class="card">
+
+      <div class="field">
+        <label for="description">Description: </label>
+        <input pInputText id="description" type="text" formControlName="description" class="inputfield w-full" />
+      </div>
+
+      <div class="field">
+        <label for="purchasePrice">Purchase price: </label>
+        <input pInputText id="purchasePrice" formControlName="purchasePrice" type="number" mode="currency"
+          currency="EUR" class="inputfield w-full" />
+      </div>
+
+      <div class="field">
+        <label for="salePrice">Sale price: </label>
+        <input pInputText id="salePrice" formControlName="salePrice" type="number" mode="currency" currency="EUR"
+          class="inputfield w-full" />
+      </div>
+
+      <div class="field">
+        <label for="stock">Stock: </label>
+        <input pInputText id="stock" formControlName="stock" type="number" class="inputfield w-full" />
+      </div>
+
+      <div class="field">
+        <label for="picture">Picture: </label>
+        <input pInputText id="picture" type="text" formControlName="picture" class="inputfield w-full" />
+      </div>
+    </div>
+
+    <p-footer>
+      <p-button type="submit" styleClass="p-button-success" [label]="formButtonText"></p-button>
+      <p-button (click)="displayAppntForm = false" label="Cancel" styleClass="p-button-danger"></p-button>
+    </p-footer>
+  </form>
+</p-dialog>
+
+<!-- Delete confirmation dialog -->
+
+<p-dialog [(visible)]="displayConfirmDelete">
+  <div class="card">
+    Are you sure you want to delete the product
+    <b>{{ descriptionForDeletion }}</b>?
+  </div>
+
+  <p-footer>
+    <p-button (click)="deleteAppnt()" label="Yes"> </p-button>
+
+    <p-button (click)="displayConfirmDelete = false" label="No"> </p-button>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,61 @@
+<p-table [value]="(patients | async)!" [paginator]="true" [rows]="7">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="patientDNI">
+        DNI <p-sortIcon field="patientDNI"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientName">
+        Nombre <p-sortIcon field="patientName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientLastName">
+        Apellidos <p-sortIcon field="patientLastName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientAge">
+        F. Nacimiento <p-sortIcon field="patientAge"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientEmail">
+        Email <p-sortIcon field="patientEmail"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientTlfn">
+        Teléfono <p-sortIcon field="patientTlfn"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientAddress">
+        Dirección <p-sortIcon field="patientAddress"></p-sortIcon>
+      </th>
+      <th pSortableColumn="patientPrice">
+        Tarifa <p-sortIcon field="patientPrice"></p-sortIcon>
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-p>
+    <tr [ngClass]="{ 'bg-age': +p.patientAge < 18 }">
+      <td>{{ p.pDNI }}</td>
+      <td>{{ p.pName }}</td>
+      <td>{{ p.pLastN }}</td>
+      <td>{{ p.pBDate }}</td>
+      <td>{{ p.pEmail }}</td>
+      <td>{{ p.pTlfn }}</td>
+      <td>{{ p.pAddr }}</td>
+      <td>{{ p.pFee }}</td>
+      <!-- <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-download"
+            class="p-button-rounded"
+            (click)="createPdf(p.patientId)"
+          ></button>
+        </td>-->
+      <td>
+        <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
+          (click)="updatePatientStep1(p.patientId)"></button>
+      </td>
+      <td>
+        <button pButton type="button" icon="pi pi-trash" class="p-button-rounded"
+          (click)="patientService.deletePatient(p.patientId)"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+th,
+td {
+  text-align: center !important;
+}
+
+p-button {
+  margin: 5px;
+}
+
+::ng-deep .p-panel-header {
+  background-color: #673ab7 !important;
+}
+
+::ng-deep .p-panel-title {
+  color: white;
+  font-size: 2.6em;
+}
+
+.bg-age {
+  background-color: yellow !important;
+}
