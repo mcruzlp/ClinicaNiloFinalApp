@@ -1,5 +1,5 @@
 export interface Patient {
-  patientId: string;
+  patientId?: string;
   pName: string;
   pLastN: string;
   pDNI: string;

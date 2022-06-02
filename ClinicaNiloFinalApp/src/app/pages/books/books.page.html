@@ -11,16 +11,15 @@
   <ion-list>
     <ion-item>
       <ion-label>Especialista</ion-label>
-      <!--       <ion-select placeholder="Selecciona especialista" >
+            <ion-select placeholder="Selecciona especialista" >
         <ion-select-option *ngFor="let d of doctors | async" [(ngModel)]="d.dName">{{d.dName}}</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Cita</ion-label>
       <ion-select placeholder="Selecciona cita">
-        <ion-select-option *ngFor="let appnt of appntsByDoctor | async">{{appnt.date}}  {{appnt.hour}}</ion-select-option>
-
-      </ion-select> -->
+        <!-- <ion-select-option *ngFor="let appnt of appntsByDoctor | async">{{appnt.date}}  {{appnt.hour}}</ion-select-option> -->
+      </ion-select>
     </ion-item>
   </ion-list>
   <ion-button expand="full" (click)="updateAppnt()">

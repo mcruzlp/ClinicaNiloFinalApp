@@ -8,8 +8,10 @@ import {
   addDoc,
   deleteDoc,
   doc,
-  setDoc,
   docData,
+  setDoc,
+  query,
+  where,
 } from '@angular/fire/firestore';
 import { Doctor } from './../model/doctor';
 import { DoctorService } from './doctor.service';
@@ -20,9 +22,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  pathToAppnts = `appointments/`;
-  /* pathToPatientAppnts = `appointments/${this.auth.getCurrentUser().uid}`;
-  pathToDoctorAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
+  pathToAppnts = `appointments`;
+  /* userAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
+  /*pathToDoctorAppnts = `appointments/${this.appointment.appntId}`;
+   pathToPatientAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
 
   constructor(
     private firestore: Firestore,
@@ -33,11 +36,7 @@ export class AppntService {
 
   async addAppnt(appointment: Appointment) {
     try {
-      const docRef = await addDoc(
-        collection(this.firestore, this.pathToAppnts),
-        appointment
-      );
-      console.log('Document written with ID: ', docRef.id);
+      await addDoc(collection(this.firestore, this.pathToAppnts), appointment);
     } catch (e) {
       console.error('Error adding document: ', e);
     }
@@ -55,12 +54,12 @@ export class AppntService {
     }) as Observable<Appointment>;
   }
 
-/*   getAppntsByDoctor(dName: string): Observable<Appointment[]> {
-    return collectionData(collection(this.firestore, this.pathToAppnts), {
+  /* getAppntsByDoctor(dName: string): Observable<Appointment[]> {
+    return collectionData(collection(this.firestore, this.pathToDoctorAppnts), {
       idField: 'dName',
     }) as Observable<Appointment[]>;
-  } */
-
+  }
+ */
   async deleteAppnt(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToAppnts}/${id}`));
   }

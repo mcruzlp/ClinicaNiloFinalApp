@@ -9,8 +9,11 @@ import {
   doc,
   setDoc,
   docData,
+  query,
+  where
 } from '@angular/fire/firestore';
 import { Doctor } from './../model/doctor';
+/* import { initializeApp } from 'firebase/app'; */
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,6 +21,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DoctorService {
+  /* firebaseConfig = {
+    // ...
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  */
+
   pathToDoctors = `doctors`;
 
   constructor(
@@ -25,6 +36,9 @@ export class DoctorService {
     private alertController: AlertController,
     public auth: AuthService
   ) {}
+
+  /* doctorRef = collection(, 'doctors');
+  q = query(this.doctorRef, where('doctorId', '==', 'dName')); */
 
   async addDoctor(doctor: Doctor) {
     try {

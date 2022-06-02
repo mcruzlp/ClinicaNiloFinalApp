@@ -17,14 +17,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  pathToAppnts = `appointments/`;
-  /* pathToPatientAppnts = `appointments/${this.auth.getCurrentUser().uid}`;
-  pathToDoctorAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
-
+  pathToAppnts = `appointments`;
+/* /${this.auth.getCurrentUser().uid} */
   constructor(
     private firestore: Firestore,
     public auth: AuthService
-  ) /* public doctorService: DoctorService */
+  )
   {}
 
   async addAppnt(appnt: Appointment) {
@@ -51,11 +49,11 @@ export class AppntService {
     }) as Observable<Appointment>;
   }
 
-  /*   getAppntsByDoctor(dName: string): Observable<Appointment[]> {
+    getAppntsByDoctor(dName: string): Observable<Appointment[]> {
     return collectionData(collection(this.firestore, this.pathToAppnts), {
       idField: 'dName',
     }) as Observable<Appointment[]>;
-  } */
+  }
 
   async deleteAppnt(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToAppnts}/${id}`));

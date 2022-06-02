@@ -16,7 +16,7 @@ export class BooksPage implements OnInit {
 
   appointment: Appointment;
   /* appntsByDoctor: Observable<Appointment[]> =
-    this.appntService.getAppntsByDoctor(); */
+    this.appntService.getAppntsByDoctor(this.appointment.dName); */
 
   doctors: Observable<Doctor[]> = this.doctorService.getDoctors();
 

@@ -1,5 +1,7 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 import { Patient } from './../../model/patient';
 import { PatientService } from './../../services/patient.service';
@@ -8,10 +10,25 @@ import { PatientService } from './../../services/patient.service';
   selector: 'app-patients',
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.scss'],
+  providers: [MessageService],
 })
 export class PatientsComponent implements OnInit {
-
   patients: Observable<Patient[]>;
+
+  password: string = '';
+
+  patient: Patient = {
+    patientId: '',
+    pName: '',
+    pLastN: '',
+    pDNI: '',
+    pBDate: '',
+    pTlfn: '',
+    pAddr: '',
+    pEmail: '',
+    pFee: '' /*,
+    pRegDate: '' */,
+  };
 
   patientForm = new FormGroup({
     patientId: new FormControl(),
@@ -31,16 +48,20 @@ export class PatientsComponent implements OnInit {
   idForDeletion = '';
   descriptionForDeletion = '';
 
-  constructor(public patientService: PatientService) {
+  constructor(
+    private messageService: MessageService,
+    public patientService: PatientService,
+    public authService: AuthService
+  ) {
     this.patients = this.patientService.getPatients();
   }
 
   ngOnInit() {}
 
   addPatient() {
+    this.patientForm.reset();
     this.formButtonText === 'Añadir paciente';
     this.patientService.addPatient(this.patientForm.value);
-    this.patientForm.reset();
   }
 
   updatePatientStep1(id: string) {
@@ -51,7 +72,6 @@ export class PatientsComponent implements OnInit {
     });
 
     this.formButtonText = 'Actualizar paciente';
-    this.patientForm.reset();
   }
 
   updatePatientStep2() {
@@ -78,16 +98,25 @@ export class PatientsComponent implements OnInit {
     this.patientForm.reset();
   }
 
-  confirmDeletePatient(patient: Patient) {
-    this.idForDeletion = patient.patientId;
-    this.descriptionForDeletion = patient.pName;
-    this.displayConfirmDelete = true;
+  async register() {
+    const registerSuccess = await this.authService.register(
+      this.patient.pEmail,
+      this.password
+    );
+    if (registerSuccess) {
+      this.patientService.addPatient(this.patient);
+    } else {
+      this.presentAlert();
+    }
   }
 
-  deletePatient() {
-    this.patientService.deletePatient(this.idForDeletion);
-    this.displayConfirmDelete = false;
+  async presentAlert() {
+    const alert = await this.messageService.add({
+      severity:'error',
+      summary: 'Conexión fallida',
+      detail:
+        'No se ha podido completar el registro, el correo electrónico y/o la contraseña no son válidos.',
+    });
+    await alert;
   }
-
-  showPatients() {}
 }

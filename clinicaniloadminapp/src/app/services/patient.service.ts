@@ -17,7 +17,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PatientService {
-  pathToPatients = `patients/`;
+  pathToPatients = `patients`;
 
   constructor(
     private firestore: Firestore,

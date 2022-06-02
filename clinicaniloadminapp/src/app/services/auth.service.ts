@@ -16,7 +16,7 @@ import {
 export class AuthService {
   constructor(private auth: Auth) {}
 
-  /*login(email: string, password: string): Promise<boolean> {
+  /* login(email: string, password: string): Promise<boolean> {
     return signInWithEmailAndPassword(this.auth, email, password).then(
       () => true,
       (error) => {
@@ -26,13 +26,9 @@ export class AuthService {
     );
   }
 
-   getCurrentUser(): User {
+  getCurrentUser(): User {
     return getAuth().currentUser;
-  }
-
-  getUserEmail() {
-    return getAuth().currentUser.email;
-  }
+  } */
 
   logout() {
     signOut(this.auth);
@@ -50,5 +46,5 @@ export class AuthService {
 
   resetPassword(email: string): Promise<void> {
     return sendPasswordResetEmail(this.auth, email);
-  } */
+  }
 }

@@ -1,11 +1,15 @@
 <p-tabView styleClass="tabview-custom">
+  <!-- TAB APPOINTMENTS -->
   <p-tabPanel>
     <ng-template pTemplate="header">
       <i class="pi pi-calendar"></i>
       &nbsp;
       <span>Citas</span>
     </ng-template>
+    <app-appnts></app-appnts>
   </p-tabPanel>
+
+  <!-- TAB PATIENTS -->
   <p-tabPanel header="Header II">
     <ng-template pTemplate="header">
       <i class="pi pi-user"></i>
@@ -14,11 +18,14 @@
     </ng-template>
     <app-patients></app-patients>
   </p-tabPanel>
+
+  <!-- TAB BILLS -->
   <!-- <p-tabPanel header="Header III">
-    <ng-template pTemplate="header">
-      <i class="pi pi-euro"></i>
-      &nbsp;
-      <span>Facturas</span>
-    </ng-template>
-  </p-tabPanel> -->
+      <ng-template pTemplate="header">
+        <i class="pi pi-euro"></i>
+        &nbsp;
+        <span>Facturas</span>
+      </ng-template>
+    </p-tabPanel> -->
+
 </p-tabView>

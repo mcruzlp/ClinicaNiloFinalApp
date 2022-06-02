@@ -21,7 +21,7 @@ export class AppntsComponent implements OnInit {
     hour: new FormControl(''),
   });
 
-  formButtonText = 'Añadir paciente';
+  formButtonText = 'Añadir cita';
   displayAppntForm = false;
   displayConfirmDelete = false;
   idForDeletion = '';
@@ -34,7 +34,7 @@ export class AppntsComponent implements OnInit {
   ngOnInit() {}
 
   addAppnt() {
-    this.formButtonText === 'Añadir paciente';
+    this.formButtonText === 'Añadir cita';
     this.appntService.addAppnt(this.appntForm.value);
     this.appntForm.reset();
   }
@@ -46,16 +46,17 @@ export class AppntsComponent implements OnInit {
       this.appntForm.patchValue(data);
     });
 
-    this.formButtonText = 'Actualizar paciente';
+    this.formButtonText = 'Actualizar cita';
     this.appntForm.reset();
   }
 
   updateAppntStep2() {
     this.appntService.updateAppnt(this.appntForm.value);
+    this.appntForm.reset();
   }
 
   formSubmit() {
-    this.formButtonText === 'Añadir paciente'
+    this.formButtonText === 'Añadir cita'
       ? this.addAppnt()
       : this.updateAppntStep2();
 
@@ -65,7 +66,7 @@ export class AppntsComponent implements OnInit {
 
   buttonAddAppnt() {
     this.displayAppntForm = true;
-    this.formButtonText === 'Añadir paciente';
+    this.formButtonText === 'Añadir cita';
     this.appntForm.reset();
   }
 
