@@ -13,23 +13,17 @@ export class TopbarComponent implements OnInit {
     {
       label: 'Citas',
       icon: 'pi pi-fw pi-calendar',
-      command: () => {
-        this.goToAppnts();
-      },
+      routerLink: ['/appnts'],
     },
     {
       label: 'Pacientes',
-      icon: 'pi pi-fw pi-pencil',
-      command: () => {
-        this.goToPatients();
-      },
+      icon: 'pi pi-fw pi-users',
+      routerLink: ['/patients'],
     },
     /* {
       label: 'Facturas',
       icon: 'pi pi-fw pi-euro',
-      command: () => {
-        this.goToBills();
-      },
+      routerLink: ['/bills'],
     }, */
     {
       label: 'Configuración',
@@ -43,8 +37,9 @@ export class TopbarComponent implements OnInit {
         { separator: true },
         {
           label: 'Cerrar sesión',
+          routerLink: ['/welcome'],
           command: () => {
-            this.logout();
+            this.authService.logout();
           },
           icon: 'pi pi-power-off',
         },
@@ -55,13 +50,4 @@ export class TopbarComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
-
-  goToAppnts() {}
-
-  goToPatients() {}
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/welcome');
-  }
 }

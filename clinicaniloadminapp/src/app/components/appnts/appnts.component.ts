@@ -1,8 +1,10 @@
+import { Appointment } from './../../model/appointment';
+import { AppntService } from './../../services/appnt.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Appointment } from './../../model/appointment';
-import { AppntService } from './../../services/appnt.service';
+import { Patient } from './../../model/patient';
+import { PatientService } from './../../services/patient.service';
 
 @Component({
   selector: 'app-appnts',
@@ -11,14 +13,22 @@ import { AppntService } from './../../services/appnt.service';
 })
 export class AppntsComponent implements OnInit {
   appnts: Observable<Appointment[]>;
+  patients: Observable<Patient[]>;
+  selectedPatient: Patient = {
+    pName: '',
+    pLastN: '',
+    pDNI: '',
+    pBDate: '',
+    pTlfn: '',
+    pAddr: '',
+    pEmail: '',
+  };
 
   appntForm = new FormGroup({
-    appntId: new FormControl(),
-    dName: new FormControl(''),
+    dName: new FormControl(''), //getCurrentUser
     pName: new FormControl(''),
     pLastN: new FormControl(''),
     date: new FormControl(''),
-    hour: new FormControl(''),
   });
 
   formButtonText = 'Añadir cita';
@@ -27,8 +37,12 @@ export class AppntsComponent implements OnInit {
   idForDeletion = '';
   descriptionForDeletion = '';
 
-  constructor(public appntService: AppntService) {
+  constructor(
+    public appntService: AppntService,
+    public patientService: PatientService
+  ) {
     this.appnts = this.appntService.getAppnts();
+    this.patients = this.patientService.getPatients();
   }
 
   ngOnInit() {}

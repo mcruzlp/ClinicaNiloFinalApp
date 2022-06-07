@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TopnavComponent implements OnInit {
   title: string;
+  palabra = 'pera';
 
   constructor(
     private menu: MenuController,
@@ -24,8 +25,12 @@ export class TopnavComponent implements OnInit {
     this.menu.open('main-menu');
   }
 
-  logout() {
+  logoff() {
+    this.palabra = 'manzana';
+    console.log(this.palabra);
     this.authService.logout();
+    console.log('logoff');
     this.router.navigateByUrl('/welcome');
   }
+  /* paciente1@gmail.com */
 }

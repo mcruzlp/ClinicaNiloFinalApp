@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  deleteUser,
   getAuth,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
@@ -30,11 +31,8 @@ export class AuthService {
     return getAuth().currentUser;
   }
 
-  getUserEmail() {
-    return getAuth().currentUser.email;
-  }
-
   logout() {
+    console.log('logout');
     signOut(this.auth);
   }
 
@@ -51,4 +49,14 @@ export class AuthService {
   resetPassword(email: string): Promise<void> {
     return sendPasswordResetEmail(this.auth, email);
   }
+
+  /* deleteAcount(user) {
+    return deleteUser(this.user).then(
+      () => true,
+      (error) => {
+        console.error(error);
+        return false;
+      }
+    );
+  } */
 }

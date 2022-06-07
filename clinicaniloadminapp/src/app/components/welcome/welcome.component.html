@@ -1,3 +1,29 @@
-<ng-template>
-  <p>asdfasdf</p>
-</ng-template>
+<p-card class="wlcm" styleClass="p-card-shadow">
+  <div class="grid">
+    <div class="col-5">
+      <div class="p-fluid">
+        <div class="field">
+          <label for="email">Email</label>
+          <input pInputText id="email" type="text" [(ngModel)]="email"/>
+        </div>
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <input pInputText id="password" type="password" [(ngModel)]="password"/>
+        </div>
+        &nbsp;
+        <p-button label="Inicia sesión"></p-button>
+        &nbsp;
+        <a class="text" href="/forgot">
+          Recuperar contraseña</a>
+      </div>
+    </div>
+    <div class="col-2">
+      <p-divider layout="vertical">
+        <b>O</b>
+      </p-divider>
+    </div>
+    <div class="col-5">
+      <p-button label="Regístrate" icon="pi pi-user-plus" styleClass="p-button-success"></p-button>
+    </div>
+  </div>
+</p-card>

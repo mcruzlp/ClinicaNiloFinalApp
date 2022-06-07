@@ -1,4 +1,6 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Patient } from './../../model/patient';
 import { PatientService } from './../../services/patient.service';
 import { Router } from '@angular/router';
@@ -9,11 +11,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  title = 'Mi perfil';
+  title = 'Perfil';
 
   patient: Patient;
 
-  constructor(public patientService: PatientService, private router: Router) {}
+  constructor(
+    public auth: AuthService,
+    public patientService: PatientService,
+    private router: Router
+  ) {
+    this.patient = this.patientService.getPatientByEmail(this.auth.getCurrentUser().email);
+  }
 
   ngOnInit() {}
+
+  /* async resetPassword() {
+    await this.auth.resetPassword(this.patient.pEmail);
+  } */
+
+  /* async deleteAcount() {
+    await this.auth.deleteAcount(this.patient.pEmail);
+  } */
 }

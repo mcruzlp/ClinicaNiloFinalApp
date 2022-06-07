@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  deleteUser,
   getAuth,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
@@ -16,7 +17,7 @@ import {
 export class AuthService {
   constructor(private auth: Auth) {}
 
-  /* login(email: string, password: string): Promise<boolean> {
+  login(email: string, password: string): Promise<boolean> {
     return signInWithEmailAndPassword(this.auth, email, password).then(
       () => true,
       (error) => {
@@ -28,7 +29,7 @@ export class AuthService {
 
   getCurrentUser(): User {
     return getAuth().currentUser;
-  } */
+  }
 
   logout() {
     signOut(this.auth);

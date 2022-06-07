@@ -62,6 +62,8 @@ const routes: Routes = [
     path: 'books',
     loadChildren: () =>
       import('./pages/books/books.module').then((m) => m.BooksPageModule),
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: '**',

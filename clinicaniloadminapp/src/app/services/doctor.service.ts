@@ -1,4 +1,4 @@
-import { AlertController } from '@ionic/angular';
+
 import { AuthService } from './auth.service';
 import {
   collection,
@@ -21,9 +21,8 @@ export class DoctorService {
   pathToDoctors = `doctors/${this.auth.getCurrentUser().uid}`;
 
   constructor(
-    private alertController: AlertController,
     public auth: AuthService,
-    private firestore: Firestore
+    private firestore: Firestore,
   ) {}
 
   async addDoctor(doctor: Doctor) {

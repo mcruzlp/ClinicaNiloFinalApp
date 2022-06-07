@@ -23,8 +23,8 @@ export class LogupPage implements OnInit {
     pTlfn: '',
     pAddr: '',
     pEmail: '',
-    pFee: '',/*,
-    pRegDate: '' */};
+    pFee: '',
+  };
 
   constructor(
     private alertController: AlertController,

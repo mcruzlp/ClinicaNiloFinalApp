@@ -1,3 +1,16 @@
-<app-topbar></app-topbar>
-<app-dashboard></app-dashboard>
-<app-footer></app-footer>
+<div class="topbar">
+  <app-topbar></app-topbar>
+</div>
+
+<div class="dashboard">
+  <ng-container *ngIf="login">
+    <app-dashboard></app-dashboard>
+  </ng-container>
+  <ng-container *ngIf="logout">
+    <app-welcome></app-welcome>
+  </ng-container>
+</div>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

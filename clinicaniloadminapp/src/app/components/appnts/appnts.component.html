@@ -20,8 +20,8 @@
   </ng-template>
   <ng-template pTemplate="body" let-a>
     <tr>
-      <td>{{ a.date }}</td>
-      <td>{{ a.hour }}</td>
+      <td>{{ a.date | date : 'dd/MM' }}</td>
+      <td>{{ a.date | date : 'HH:mm' }}</td>
       <td>{{ a.pName }} {{ a.pLastN}}</td>
       <td>
         <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
@@ -42,28 +42,14 @@
   <form [formGroup]="appntForm" (ngSubmit)="formSubmit()">
     <div class="card">
       <div class="field">
-        <label for="date">Fecha: </label>
-        <input pInputText id="date" type="text" formControlName="date" class="inputfield w-full" />
-      </div>
-
-      <div class="field">
-        <label for="hour">Hora: </label>
-        <input pInputText id="hour" formControlName="hour" type="text" class="inputfield w-full" />
-      </div>
-
-      <div>
-        <!--<label for="date">Fecha: </label>
-        <p-calendar [inline]="true" [showWeek]="true" formControlName="date" [style]="{ width: '40vw' }"></p-calendar> -->
-      </div>
-
-      <div>
-        <!--<label for="hour">Hora: </label>
-        <p-calendar formControlName="hour" [stepMinute]="15" [timeOnly]="true"></p-calendar> -->
+        <label for="hour">Fecha y Hora: </label>
+        <input pInputText id="hour" formControlName="date" type="datetime-local" class="inputfield w-full" />
       </div>
 
       <div class="field">
         <label for="pName">Paciente: </label>
-        <input pInputText id="pName" formControlName="pName" type="text" class="inputfield w-full" />
+        <!-- <input pInputText id="pName" formControlName="pName" type="text" class="inputfield w-full" /> -->
+        <!-- <p-dropdown [options]="patients" [(ngModel)]="selectedPatient" [virtualScroll]="true" optionLabel="name"></p-dropdown> -->
       </div>
     </div>
 

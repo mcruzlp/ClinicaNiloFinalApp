@@ -49,9 +49,9 @@ export class PatientsComponent implements OnInit {
   descriptionForDeletion = '';
 
   constructor(
+    public authService: AuthService,
     private messageService: MessageService,
-    public patientService: PatientService,
-    public authService: AuthService
+    public patientService: PatientService
   ) {
     this.patients = this.patientService.getPatients();
   }
@@ -112,7 +112,7 @@ export class PatientsComponent implements OnInit {
 
   async presentAlert() {
     const alert = await this.messageService.add({
-      severity:'error',
+      severity: 'error',
       summary: 'Conexión fallida',
       detail:
         'No se ha podido completar el registro, el correo electrónico y/o la contraseña no son válidos.',

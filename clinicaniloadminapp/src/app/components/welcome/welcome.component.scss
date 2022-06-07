@@ -1,0 +1,19 @@
+.wlcm {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  margin: 10px;
+  width: auto;
+
+  .grid {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* @media screen and (min-) {
+
+} */

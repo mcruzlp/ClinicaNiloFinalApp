@@ -15,9 +15,9 @@ export class LoginPage implements OnInit {
   password: string;
 
   constructor(
+    private alertController: AlertController,
     public authService: AuthService,
     private router: Router,
-    private alertController: AlertController
   ) {}
 
   ngOnInit() {}
