@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  title = 'Perfil';
 
   patient: Patient;
 
