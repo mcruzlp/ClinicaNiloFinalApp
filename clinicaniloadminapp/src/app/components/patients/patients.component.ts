@@ -15,8 +15,6 @@ import { PatientService } from './../../services/patient.service';
 export class PatientsComponent implements OnInit {
   patients: Observable<Patient[]>;
 
-  password: string = '';
-
   patient: Patient = {
     patientId: '',
     pName: '',
@@ -26,7 +24,7 @@ export class PatientsComponent implements OnInit {
     pTlfn: '',
     pAddr: '',
     pEmail: '',
-    pFee: '' ,
+    pFee: '',
   };
 
   patientForm = new FormGroup({
@@ -58,7 +56,6 @@ export class PatientsComponent implements OnInit {
   ngOnInit() {}
 
   addPatient() {
-    this.patientForm.reset();
     this.formButtonText === 'Añadir paciente';
     this.patientService.addPatient(this.patientForm.value);
   }
@@ -75,6 +72,7 @@ export class PatientsComponent implements OnInit {
 
   updatePatientStep2() {
     this.patientService.updatePatient(this.patientForm.value);
+    this.formButtonText === 'Añadir paciente';
   }
 
   formSubmit() {
@@ -95,27 +93,11 @@ export class PatientsComponent implements OnInit {
   cancel() {
     this.displayPatientForm = false;
     this.patientForm.reset();
+    this.formButtonText === 'Añadir paciente';
   }
 
-  async register() {
-    const registerSuccess = await this.authService.register(
-      this.patient.pEmail,
-      this.password
-    );
-    if (registerSuccess) {
-      this.patientService.addPatient(this.patient);
-    } else {
-      this.presentAlert();
-    }
-  }
-
-  async presentAlert() {
-    const alert = await this.messageService.add({
-      severity: 'error',
-      summary: 'Conexión fallida',
-      detail:
-        'No se ha podido completar el registro, el correo electrónico y/o la contraseña no son válidos.',
-    });
-    await alert;
+  deletePatient() {
+    this.patientService.deletePatient(this.idForDeletion);
+    this.displayConfirmDelete = false;
   }
 }

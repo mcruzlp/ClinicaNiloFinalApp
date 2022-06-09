@@ -2,12 +2,9 @@
   <app-topbar></app-topbar>
 </div>
 
-<div class="dashboard">
-  <ng-container *ngIf="logged == true">
-    <app-dashboard></app-dashboard>
-  </ng-container>
-  <ng-container *ngIf="logged == false">
-    <app-welcome></app-welcome>
+<div>
+  <ng-container>
+    <router-outlet></router-outlet>
   </ng-container>
 </div>
 

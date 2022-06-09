@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 //components
 import { AppComponent } from './app.component';
 import { AppntsComponent } from './components/appnts/appnts.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LogupComponent } from './components/logup/logup.component';
 import { PatientsComponent } from './components/patients/patients.component';
@@ -51,7 +50,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
-import { SpeedDialModule } from 'primeng/speeddial';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
@@ -64,7 +62,6 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
   declarations: [
     AppComponent,
     AppntsComponent,
-    DashboardComponent,
     FooterComponent,
     LogupComponent,
     PatientsComponent,
@@ -102,7 +99,6 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     PanelModule,
     PasswordModule,
     ScrollPanelModule,
-    SpeedDialModule,
     SplitButtonModule,
     TableModule,
     TabViewModule,

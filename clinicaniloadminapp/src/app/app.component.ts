@@ -1,4 +1,3 @@
-import { AuthService } from 'src/app/services/auth.service';
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -6,13 +5,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  logged: boolean = true;
 
-  constructor(public authService: AuthService) {}
+  constructor() {}
 
-  /* isLogged(): boolean {
-    if (this.authService.getCurrentUser() != null) {
-      return this.logged = true;
-    }
-  } */
 }

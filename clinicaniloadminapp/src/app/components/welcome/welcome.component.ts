@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class WelcomeComponent implements OnInit {
   email = '';
   password = '';
-  /* logged:boolean = false; */
 
   constructor(
     public authService: AuthService,
@@ -28,7 +27,7 @@ export class WelcomeComponent implements OnInit {
       this.password
     );
     if (connectionSuccess) {
-      /* this.logged = true; */
+      this.router.navigateByUrl('/appnts');
     } else {
       this.presentAlert();
     }

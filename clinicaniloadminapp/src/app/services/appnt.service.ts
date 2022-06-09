@@ -18,12 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class AppntService {
   pathToAppnts = `appointments`;
-/* /${this.auth.getCurrentUser().uid} */
-  constructor(
-    private firestore: Firestore,
-    public auth: AuthService
-  )
-  {}
+  /* /${this.auth.getCurrentUser().uid} */
+  constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addAppnt(appnt: Appointment) {
     try {
@@ -49,7 +45,7 @@ export class AppntService {
     }) as Observable<Appointment>;
   }
 
-    getAppntsByDoctor(dName: string): Observable<Appointment[]> {
+  getAppntsByDoctor(dName: string): Observable<Appointment[]> {
     return collectionData(collection(this.firestore, this.pathToAppnts), {
       idField: 'dName',
     }) as Observable<Appointment[]>;

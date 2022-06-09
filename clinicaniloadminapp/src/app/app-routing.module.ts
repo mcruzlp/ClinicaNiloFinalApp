@@ -8,7 +8,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppntsComponent } from './components/appnts/appnts.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -16,18 +15,12 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['welcome']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['dashboard']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['appnts']);
 
 const routes: Routes = [
   {
     path: 'appnts',
     component: AppntsComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }, */
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
     /* canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin }, */
   },
