@@ -21,26 +21,26 @@ const routes: Routes = [
   {
     path: 'appnts',
     component: AppntsComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }, */
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'patients',
     component: PatientsComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }, */
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }, */
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
     path: 'welcome',
     component: WelcomeComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectLoggedInToHome }, */
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedInToHome },
   },
 ];
 
