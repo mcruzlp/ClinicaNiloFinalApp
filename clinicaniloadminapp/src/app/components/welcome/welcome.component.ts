@@ -1,7 +1,5 @@
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Doctor } from './../../model/doctor';
-import { DoctorService } from './../../services/doctor.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
@@ -12,19 +10,12 @@ import { Router } from '@angular/router';
   providers: [MessageService],
 })
 export class WelcomeComponent implements OnInit {
-  password: string = '';
-
-  doctor: Doctor = {
-    dName: '',
-    dLastN: '',
-    dGraduate: '',
-    dTlfn: 0,
-    dEmail: '',
-  };
+  email = '';
+  password = '';
+  /* logged:boolean = false; */
 
   constructor(
     public authService: AuthService,
-    public doctorService: DoctorService,
     private messageService: MessageService,
     private router: Router
   ) {}
@@ -33,16 +24,16 @@ export class WelcomeComponent implements OnInit {
 
   async login() {
     const connectionSuccess = await this.authService.login(
-      this.doctor.dEmail,
+      this.email,
       this.password
     );
     if (connectionSuccess) {
-      this.router.navigateByUrl('/dashboard');
+      /* this.logged = true; */
     } else {
-      this.loginPresentAlert();
+      this.presentAlert();
     }
   }
-  async loginPresentAlert() {
+  async presentAlert() {
     const alert = await this.messageService.add({
       severity: 'error',
       summary: 'Conexión fallida',

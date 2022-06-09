@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  login: boolean = true;
-  logout: boolean = false;
+  logged: boolean = true;
 
   constructor(public authService: AuthService) {}
+
+  /* isLogged(): boolean {
+    if (this.authService.getCurrentUser() != null) {
+      return this.logged = true;
+    }
+  } */
 }

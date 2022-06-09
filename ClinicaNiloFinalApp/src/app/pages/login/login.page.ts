@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  title = 'Inicio de sesión';
 
   email: string;
   password: string;

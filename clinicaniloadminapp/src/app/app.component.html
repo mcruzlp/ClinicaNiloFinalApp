@@ -3,10 +3,10 @@
 </div>
 
 <div class="dashboard">
-  <ng-container *ngIf="login">
+  <ng-container *ngIf="logged == true">
     <app-dashboard></app-dashboard>
   </ng-container>
-  <ng-container *ngIf="logout">
+  <ng-container *ngIf="logged == false">
     <app-welcome></app-welcome>
   </ng-container>
 </div>
