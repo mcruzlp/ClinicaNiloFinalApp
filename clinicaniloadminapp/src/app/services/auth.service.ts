@@ -27,7 +27,7 @@ export class AuthService {
     );
   }
 
-  getCurrentUser(): User {
+  getCurrentUser(): User | null {
     return getAuth().currentUser;
   }
 

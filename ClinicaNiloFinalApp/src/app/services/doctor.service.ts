@@ -7,6 +7,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  getDoc,
   setDoc,
   docData,
 } from '@angular/fire/firestore';
@@ -18,7 +19,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DoctorService {
-  pathToDoctors = `doctors/${this.auth.getCurrentUser().uid}`;
+  pathToDoctors = `doctors`;
+  pathToDoctorUser = `doctors/${this.auth.getCurrentUser().uid}`;
 
   constructor(
     private alertController: AlertController,

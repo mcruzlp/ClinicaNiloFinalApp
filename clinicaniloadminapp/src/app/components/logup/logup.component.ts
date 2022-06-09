@@ -6,12 +6,12 @@ import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss'],
+  selector: 'app-logup',
+  templateUrl: './logup.component.html',
+  styleUrls: ['./logup.component.scss'],
   providers: [MessageService],
 })
-export class WelcomeComponent implements OnInit {
+export class LogupComponent implements OnInit {
   password: string = '';
 
   doctor: Doctor = {
@@ -31,23 +31,24 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async login() {
-    const connectionSuccess = await this.authService.login(
+  async register() {
+    const registerSuccess = await this.authService.register(
       this.doctor.dEmail,
       this.password
     );
-    if (connectionSuccess) {
+    if (registerSuccess) {
       this.router.navigateByUrl('/dashboard');
+      this.doctorService.addDoctor(this.doctor);
     } else {
-      this.loginPresentAlert();
+      this.registerPresentAlert();
     }
   }
-  async loginPresentAlert() {
+  async registerPresentAlert() {
     const alert = await this.messageService.add({
       severity: 'error',
       summary: 'Conexión fallida',
       detail:
-        'No se ha podido acceder a la cuenta. El correo electrónico y/o la contraseña proporcionados no son válidos.',
+        'No se ha podido completar el registro. El correo electrónico y/o la contraseña no son válidos.',
     });
     await alert;
   }

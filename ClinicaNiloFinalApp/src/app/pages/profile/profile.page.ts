@@ -19,9 +19,7 @@ export class ProfilePage implements OnInit {
     public auth: AuthService,
     public patientService: PatientService,
     private router: Router
-  ) {
-    this.patient = this.patientService.getPatientByEmail(this.auth.getCurrentUser().email);
-  }
+  ) {}
 
   ngOnInit() {}
 

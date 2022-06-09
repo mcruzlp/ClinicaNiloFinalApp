@@ -13,7 +13,6 @@ export class ProfileComponent implements OnInit {
   doctor: Doctor = {
     dName: '',
     dLastN: '',
-    dDNI: '',
     dGraduate: '',
     dTlfn: 0,
     dEmail: '',

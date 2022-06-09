@@ -33,10 +33,9 @@
       <!-- TODO: Mostrar sólo las dos primeras citas disponibles -->
       <ion-list>
         <ion-item *ngFor="let appnt of appointments | async">
-          <ion-icon slot="end" name="pencil"></ion-icon>
-          <ion-icon slot="end" name="trash"></ion-icon>
-          <ion-label class="item">{{ appnt.date }}</ion-label>
-          <ion-label class="item">{{ appnt.hour }}</ion-label>
+          <ion-label class="item">{{ appnt.dName }}</ion-label>
+          <ion-label class="item">{{ appnt.date | date : 'dd/MM'}}</ion-label>
+          <ion-label class="item">{{ appnt.date | date : 'HH:mm'}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card>

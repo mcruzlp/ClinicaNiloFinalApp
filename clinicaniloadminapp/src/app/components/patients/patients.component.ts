@@ -26,8 +26,7 @@ export class PatientsComponent implements OnInit {
     pTlfn: '',
     pAddr: '',
     pEmail: '',
-    pFee: '' /*,
-    pRegDate: '' */,
+    pFee: '' ,
   };
 
   patientForm = new FormGroup({

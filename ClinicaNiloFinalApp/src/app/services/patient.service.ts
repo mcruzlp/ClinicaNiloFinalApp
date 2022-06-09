@@ -22,17 +22,14 @@ import { Patient } from './../model/patient';
   providedIn: 'root',
 })
 export class PatientService {
-  pathToPatients = `patients/${this.auth.getCurrentUser().uid}`;
-
-  patients: Patient[] = [];
+  pathToPatients = `patients`;
+  pathToUserPatientId = `patients/${this.auth.getCurrentUser().uid}`;
 
   constructor(
     private alertController: AlertController,
     public auth: AuthService,
     private firestore: Firestore
-  ) {
-    this.patients = this.getPatients();
-  }
+  ) {}
 
   async addPatient(patient: Patient) {
     try {
@@ -52,14 +49,10 @@ export class PatientService {
     }) as Observable<Patient[]>;
   }
 
-  getPatient(): Observable<Patient> {
-    return docData(
-      doc(this.firestore, `${this.pathToPatients}`)
-    ) as Observable<Patient>;
-  }
-
-  getPatientByEmail(email: string): Patient {
-    return this.patients.filter((p) => p.pEmail === email);
+  getPatient(id: string): Observable<Patient> {
+    return docData(doc(this.firestore, `${this.pathToPatients}/${id}`), {
+      idField: 'patientId',
+    }) as Observable<Patient>;
   }
 
   async deletePatient(id: string) {

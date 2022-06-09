@@ -22,7 +22,7 @@
     <tr>
       <td>{{ a.date | date : 'dd/MM' }}</td>
       <td>{{ a.date | date : 'HH:mm' }}</td>
-      <td>{{ a.pName }} {{ a.pLastN}}</td>
+      <td>{{ a.patientId | patients | async}}</td>
       <td>
         <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
           (click)="updateAppntStep1(a.appntId)"></button>
@@ -49,7 +49,7 @@
       <div class="field">
         <label for="pName">Paciente: </label>
         <!-- <input pInputText id="pName" formControlName="pName" type="text" class="inputfield w-full" /> -->
-        <!-- <p-dropdown [options]="patients" [(ngModel)]="selectedPatient" [virtualScroll]="true" optionLabel="name"></p-dropdown> -->
+        <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true"></p-dropdown>
       </div>
     </div>
 

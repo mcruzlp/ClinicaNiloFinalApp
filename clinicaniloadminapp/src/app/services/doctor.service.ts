@@ -18,12 +18,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DoctorService {
-  pathToDoctors = `doctors/${this.auth.getCurrentUser().uid}`;
+  pathToDoctors = `doctors`;
+  /* pathToDoctors = `doctors/${this.auth.getCurrentUser().uid}`; */
 
   constructor(
     public auth: AuthService,
-    private firestore: Firestore,
-  ) {}
+    private firestore: Firestore
+    ) {}
 
   async addDoctor(doctor: Doctor) {
     try {

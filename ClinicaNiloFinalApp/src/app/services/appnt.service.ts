@@ -23,7 +23,7 @@ import { Observable } from 'rxjs';
 })
 export class AppntService {
   pathToAppnts = `appointments`;
-  /* userAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
+  /* pathToAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
   /*pathToDoctorAppnts = `appointments/${this.appointment.appntId}`;*/
 
   constructor(

@@ -1,7 +1,9 @@
+//angular
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -10,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppntsComponent } from './components/appnts/appnts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LogupComponent } from './components/logup/logup.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -28,6 +31,9 @@ import {
   UserTrackingService,
 } from '@angular/fire/analytics';
 
+//pipes
+import { PatientsPipe } from './pipes/patients.pipe';
+
 //primeng
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AvatarModule } from 'primeng/avatar';
@@ -43,6 +49,8 @@ import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { SelectItem } from 'primeng/api';
+import { SelectItemGroup } from 'primeng/api';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
@@ -50,16 +58,22 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent,
+    AppntsComponent,
     DashboardComponent,
     FooterComponent,
+    LogupComponent,
     PatientsComponent,
-    AppntsComponent,
     ProfileComponent,
+    TopbarComponent,
     WelcomeComponent,
+
+    //pipes
+    PatientsPipe,
   ],
   imports: [
     AppRoutingModule,
@@ -68,6 +82,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     FormsModule,
     ReactiveFormsModule,
 
+    provideAnalytics(() => getAnalytics()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
@@ -93,11 +108,9 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     TabViewModule,
     ToolbarModule,
     VirtualScrollerModule,
-    provideAnalytics(() => getAnalytics()),
+
   ],
-  providers: [
-    ScreenTrackingService,UserTrackingService
-  ],
+  providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

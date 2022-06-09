@@ -3,6 +3,6 @@ export interface Appointment {
   dName: string;
   date: Date;
   notes: string;
-  pName: string;
+  patientId: string;
   pLastN: string;
 }
