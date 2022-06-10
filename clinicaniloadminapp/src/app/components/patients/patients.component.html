@@ -36,7 +36,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-p>
-      <tr [ngClass]="{ 'bg-age': +p.patientAge < 18 }">
+      <tr>
         <td>{{ p.pDNI }}</td>
         <td>{{ p.pName }}</td>
         <td>{{ p.pLastN }}</td>
