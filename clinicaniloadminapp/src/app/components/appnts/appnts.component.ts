@@ -18,9 +18,11 @@ import { SelectItem } from 'primeng/api';
 export class AppntsComponent implements OnInit {
   appnts: Observable<Appointment[]>;
   patientsItem: SelectItem[] = [];
+  userDoctorId = this.doctorService.getUserDoctorId();
 
   appntForm = new FormGroup({
     patientId: new FormControl(''),
+    doctorId: new FormControl(this.userDoctorId),
     pLastN: new FormControl(''),
     date: new FormControl(''),
   });
@@ -37,6 +39,7 @@ export class AppntsComponent implements OnInit {
     public patientService: PatientService
   ) {
     this.appnts = this.appntService.getAppnts();
+    this.userDoctorId = this.doctorService.getUserDoctorId();
     this.patientService.getPatients().subscribe((data) => {
       this.patientsItem = data.map((p) => {
         return { label: p.pName, value: p.patientId };
@@ -47,45 +50,42 @@ export class AppntsComponent implements OnInit {
   ngOnInit() {}
 
   addAppnt() {
-    this.formButtonText === 'Añadir cita';
+    this.formButtonText = 'Añadir cita';
     this.appntService.addAppnt(this.appntForm.value);
     this.appntForm.reset();
   }
 
-  updateAppntStep1(id: string) {
+  openEditForm(id: string) {
     this.displayAppntForm = true;
-
+    this.formButtonText = 'Actualizar cita';
     this.appntService.getAppnt(id).subscribe((data) => {
       this.appntForm.patchValue(data);
     });
-
-    this.formButtonText = 'Actualizar cita';
     this.appntForm.reset();
   }
 
-  updateAppntStep2() {
+  updateAppnt() {
     this.appntService.updateAppnt(this.appntForm.value);
-    this.appntForm.reset();
   }
 
   formSubmit() {
     this.formButtonText === 'Añadir cita'
       ? this.addAppnt()
-      : this.updateAppntStep2();
-
+      : this.updateAppnt();
     this.displayAppntForm = false;
     this.appntForm.reset();
   }
 
   buttonAddAppnt() {
     this.displayAppntForm = true;
-    this.formButtonText === 'Añadir cita';
+    this.formButtonText = 'Añadir cita';
     this.appntForm.reset();
   }
 
   cancel() {
     this.displayAppntForm = false;
     this.appntForm.reset();
+    this.formButtonText = 'Añadir cita';
   }
 
   confirmDeleteAppnt(appnt: Appointment) {

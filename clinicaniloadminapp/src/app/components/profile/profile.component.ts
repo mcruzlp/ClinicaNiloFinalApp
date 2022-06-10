@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
     dName: '',
     dLastN: '',
     dGraduate: '',
-    dTlfn: 0,
+    dTlfn: '',
     dEmail: '',
   };
 

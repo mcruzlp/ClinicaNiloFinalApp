@@ -37,7 +37,6 @@ export class PatientService {
         collection(this.firestore, this.pathToPatients),
         patient
       );
-      console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
     }

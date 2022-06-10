@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppntsComponent } from './components/appnts/appnts.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LogupComponent } from './components/logup/logup.component';
 import { PatientsComponent } from './components/patients/patients.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
@@ -23,6 +24,12 @@ const routes: Routes = [
     component: AppntsComponent,
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'logup',
+    component: LogupComponent,
+    /* canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedInTo }, */
   },
   {
     path: 'patients',

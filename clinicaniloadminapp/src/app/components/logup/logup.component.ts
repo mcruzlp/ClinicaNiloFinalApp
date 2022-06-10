@@ -18,7 +18,7 @@ export class LogupComponent implements OnInit {
     dName: '',
     dLastN: '',
     dGraduate: '',
-    dTlfn: 0,
+    dTlfn: '',
     dEmail: '',
   };
 
@@ -37,13 +37,13 @@ export class LogupComponent implements OnInit {
       this.password
     );
     if (registerSuccess) {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/appnts');
       this.doctorService.addDoctor(this.doctor);
     } else {
-      this.registerPresentAlert();
+      this.presentAlert();
     }
   }
-  async registerPresentAlert() {
+  async presentAlert() {
     const alert = await this.messageService.add({
       severity: 'error',
       summary: 'Conexión fallida',
@@ -51,5 +51,9 @@ export class LogupComponent implements OnInit {
         'No se ha podido completar el registro. El correo electrónico y/o la contraseña no son válidos.',
     });
     await alert;
+  }
+
+  cancel() {
+    this.router.navigateByUrl('/welcome');
   }
 }

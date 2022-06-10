@@ -3,6 +3,6 @@ export interface Doctor {
   dName: string;
   dLastN: string;
   dGraduate: string;
-  dTlfn: number;
+  dTlfn: string;
   dEmail: string;
 }

@@ -1,6 +1,6 @@
 <p-panel header="Citas">
   <ng-template pTemplate="icons">
-    <button pButton (click)="displayAppntForm = true">
+    <button pButton (click)="buttonAddAppnt()">
       <span class="pi pi-plus"></span>
     </button>
   </ng-template>
@@ -25,37 +25,37 @@
       <tr>
         <td>{{ a.date | date : 'dd/MM' }}</td>
         <td>{{ a.date | date : 'HH:mm' }}</td>
-        <td>{{ a.patientId | patients | async}}</td>
+        <td>{{ a.patientId | patients | async }}</td>
         <td>
           <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
-            (click)="updateAppntStep1(a.appntId)"></button>
+            (click)="openEditForm(a.appntId)"></button>
         </td>
         <td>
           <button pButton type="button" icon="pi pi-trash" class="p-button-rounded"
-            (click)="appntService.deleteAppnt(a.appntId)"></button>
+            (click)="confirmDeleteAppnt(a.appntId)"></button>
         </td>
       </tr>
     </ng-template>
   </p-table>
 
   <!-- Form dialog-->
-  <p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw' }">
+  <p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw', height: '20vw' }">
     <ng-template pTemplate="header"> Cita </ng-template>
 
     <form [formGroup]="appntForm" (ngSubmit)="formSubmit()">
       <div class="card">
         <div class="field">
           <label for="hour">Fecha y Hora: </label>
-          <input pInputText id="hour" formControlName="date" type="datetime-local" class="inputfield w-full" />
+          <input pInputText id="date" formControlName="date" type="datetime-local" class="inputfield w-full" />
         </div>
-
+        &nbsp;
         <div class="field">
           <label for="pName">Paciente: </label>
-          <!-- <input pInputText id="pName" formControlName="pName" type="text" class="inputfield w-full" /> -->
-          <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true"></p-dropdown>
+          <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true" [showClear]="true" placeholder="Select Item"></p-dropdown>
         </div>
+        &nbsp;
       </div>
-
+      &nbsp;
       <p-footer>
         <p-button type="submit" styleClass="p-button-success" [label]="formButtonText"></p-button>
         <p-button (click)="displayAppntForm = false" label="Cancel" styleClass="p-button-danger"></p-button>
@@ -68,11 +68,11 @@
   <p-dialog [(visible)]="displayConfirmDelete">
     <div class="card">
       Vas a borrar esta cita, ¿quieres continuar?
-      <b>{{ descriptionForDeletion }}</b>?
+      <b>{{ descriptionForDeletion }}</b>
     </div>
 
     <p-footer>
-      <p-button (click)="deleteAppnt()" label="Yes"> </p-button>
+      <p-button (click)="deleteAppnt()" label="Sí"> </p-button>
       <p-button (click)="displayConfirmDelete = false" label="No"> </p-button>
     </p-footer>
   </p-dialog>

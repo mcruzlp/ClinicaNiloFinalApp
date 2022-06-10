@@ -1,6 +1,6 @@
 <p-panel header="Pacientes">
   <ng-template pTemplate="icons">
-    <button pButton (click)="displayPatientForm = true">
+    <button pButton (click)="buttonAddPatient()">
       <span class="pi pi-plus"></span>
     </button>
   </ng-template>
@@ -47,11 +47,7 @@
         <td>{{ p.pFee }}</td>
         <td>
           <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
-            (click)="updatePatientStep1(p.patientId)"></button>
-        </td>
-        <td>
-          <button pButton type="button" icon="pi pi-trash" class="p-button-rounded" title="Borrar paciente"
-            (click)="patientService.deletePatient(p.patientId)"></button>
+            (click)="openEditForm(p.patientId)"></button>
         </td>
       </tr>
     </ng-template>
@@ -106,8 +102,8 @@
       </div>
 
       <p-footer>
-        <p-button (click)="formSubmit()" [label]="formButtonText" styleClass="p-button-success"></p-button>
-        <p-button (click)="cancel()" label="Cancelar" styleClass="p-button-danger"></p-button>
+      <p-button type="submit" styleClass="p-button-success" [label]="formButtonText"></p-button>
+      <p-button (click)="displayPatientForm = false" label="Cancel" styleClass="p-button-danger"></p-button>
       </p-footer>
     </form>
   </p-dialog>

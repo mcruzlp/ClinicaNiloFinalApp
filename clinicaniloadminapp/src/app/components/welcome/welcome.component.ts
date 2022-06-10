@@ -41,4 +41,8 @@ export class WelcomeComponent implements OnInit {
     });
     await alert;
   }
+
+  goToLogUp() {
+    this.router.navigateByUrl('/logup');
+  }
 }

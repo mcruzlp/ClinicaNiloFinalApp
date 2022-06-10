@@ -57,8 +57,8 @@ export class AppntService {
     return collectionData(collection(this.firestore, this.pathToDoctorAppnts), {
       idField: 'dName',
     }) as Observable<Appointment[]>;
-  }
- */
+  } */
+
   async deleteAppnt(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToAppnts}/${id}`));
   }

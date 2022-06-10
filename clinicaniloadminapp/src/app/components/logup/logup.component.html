@@ -3,20 +3,20 @@
     <div class="col-5">
       <div class="p-fluid">
         <div class="field">
-          <label for="email">Email</label>
-          <input pInputText id="email" type="text" [(ngModel)]="doctor.dEmail" />
+          <label for="email">Nombre</label>
+          <input pInputText id="email" type="text" [(ngModel)]="doctor.dName" />
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input pInputText id="email" type="text" [(ngModel)]="doctor.dEmail" />
+          <label for="email">Apellidos</label>
+          <input pInputText id="email" type="text" [(ngModel)]="doctor.dLastN" />
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input pInputText id="email" type="text" [(ngModel)]="doctor.dEmail" />
+          <label for="email">Nº de colegiado</label>
+          <input pInputText id="email" type="text" [(ngModel)]="doctor.dGraduate" />
         </div>
         <div class="field">
-          <label for="email">Email</label>
-          <input pInputText id="email" type="text" [(ngModel)]="doctor.dEmail" />
+          <label for="email">Teléfono</label>
+          <input pInputText id="email" type="text" [(ngModel)]="doctor.dTlfn" />
         </div>
         <div class="field">
           <label for="email">Email</label>
@@ -29,13 +29,14 @@
         &nbsp;
       </div>
     </div>
-    <div class="col-2">
-      <p-divider layout="vertical">
-        <b>O</b>
-      </p-divider>
-    </div>
-    <div class="col-5">
-      <p-button label="Regístrate" icon="pi pi-user-plus" styleClass="p-button-success" (click)="register()"></p-button>
+    <div>
+      <div>
+        <p-button label="Aceptar" icon="pi pi-user-plus" styleClass="p-button-success" (click)="register()"></p-button>
+      </div>
+      &nbsp;
+      <div>
+        <p-button label="Cancelar" icon="pi pi-x" styleClass="p-button-danger" (click)="cancel()"></p-button>
+      </div>
     </div>
   </div>
 </p-card>

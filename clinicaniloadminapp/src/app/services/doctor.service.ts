@@ -19,12 +19,9 @@ import { Observable } from 'rxjs';
 })
 export class DoctorService {
   pathToDoctors = `doctors`;
-  /* pathToDoctors = `doctors/${this.auth.getCurrentUser().uid}`; */
+  pathToDoctorUserId = `doctors/${this.auth.getCurrentUser()?.uid}`;
 
-  constructor(
-    public auth: AuthService,
-    private firestore: Firestore
-    ) {}
+  constructor(public auth: AuthService, private firestore: Firestore) {}
 
   async addDoctor(doctor: Doctor) {
     try {
@@ -32,7 +29,6 @@ export class DoctorService {
         collection(this.firestore, this.pathToDoctors),
         doctor
       );
-      console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
     }
@@ -49,6 +45,12 @@ export class DoctorService {
       idField: 'doctorId',
     }) as Observable<Doctor>;
   }
+
+  getUserDoctorId(): Observable<Doctor> {
+    return docData(doc(this.firestore, `${this.pathToDoctorUserId}`), {
+      idField: 'doctorId',
+    }) as Observable<Doctor>;
+  };
 
   async deleteDoctor(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToDoctors}/${id}`));

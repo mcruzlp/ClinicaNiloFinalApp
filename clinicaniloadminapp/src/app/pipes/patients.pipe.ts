@@ -23,8 +23,14 @@ export class PatientsPipe implements PipeTransform {
     let patientLastName: string = '';
 
     patient = await firstValueFrom(this.patientService.getPatient(patientId));
-    patientName = patient.pName;
-    patientLastName = patient.pLastN;
+
+    if (patient == null) {
+      patientName = '';
+      patientLastName = '';
+    } else {
+      patientName = patient.pName;
+      patientLastName = patient.pLastN;
+    }
 
     return patientName + ' ' + patientLastName;
   }
