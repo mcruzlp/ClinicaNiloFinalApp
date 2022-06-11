@@ -18,12 +18,10 @@ import { SelectItem } from 'primeng/api';
 export class AppntsComponent implements OnInit {
   appnts: Observable<Appointment[]>;
   patientsItem: SelectItem[] = [];
-  userDoctorId = this.doctorService.getUserDoctorId();
 
   appntForm = new FormGroup({
     patientId: new FormControl(''),
-    doctorId: new FormControl(this.userDoctorId),
-    pLastN: new FormControl(''),
+    /* doctorId: new FormControl(this.userDoctorId), */
     date: new FormControl(''),
   });
 
@@ -39,12 +37,12 @@ export class AppntsComponent implements OnInit {
     public patientService: PatientService
   ) {
     this.appnts = this.appntService.getAppnts();
-    this.userDoctorId = this.doctorService.getUserDoctorId();
     this.patientService.getPatients().subscribe((data) => {
       this.patientsItem = data.map((p) => {
         return { label: p.pName, value: p.patientId };
       });
     });
+
   }
 
   ngOnInit() {}

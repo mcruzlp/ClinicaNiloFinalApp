@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
 })
 export class AppntService {
   pathToAppnts = `appointments`;
-  /* /${this.auth.getCurrentUser().uid} */
+  
   constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addAppnt(appnt: Appointment) {

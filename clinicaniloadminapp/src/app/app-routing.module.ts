@@ -20,6 +20,11 @@ const redirectLoggedInToHome = () => redirectLoggedInTo(['appnts']);
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'welcome',
+    pathMatch: 'full',
+  },
+  {
     path: 'appnts',
     component: AppntsComponent,
     canActivate: [AuthGuard],
@@ -28,8 +33,8 @@ const routes: Routes = [
   {
     path: 'logup',
     component: LogupComponent,
-    /* canActivate: [AuthGuard],
-    data: { authGuardPipe: redirectLoggedInTo }, */
+    canActivate: [AuthGuard],
+    data: { authGuardPipe: redirectLoggedInTo },
   },
   {
     path: 'patients',

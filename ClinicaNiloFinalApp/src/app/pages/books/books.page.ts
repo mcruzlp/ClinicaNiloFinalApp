@@ -12,12 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./books.page.scss'],
 })
 export class BooksPage implements OnInit {
-  title = 'Reservar cita';
-
   appointment: Appointment;
-  /* appntsByDoctor: Observable<Appointment[]> =
-    this.appntService.getAppntsByDoctor(this.appointment.dName); */
-
   doctors: Observable<Doctor[]> = this.doctorService.getDoctors();
 
   constructor(

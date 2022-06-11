@@ -46,12 +46,6 @@ export class DoctorService {
     }) as Observable<Doctor>;
   }
 
-  getUserDoctorId(): Observable<Doctor> {
-    return docData(doc(this.firestore, `${this.pathToDoctorUserId}`), {
-      idField: 'doctorId',
-    }) as Observable<Doctor>;
-  };
-
   async deleteDoctor(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToDoctors}/${id}`));
   }
