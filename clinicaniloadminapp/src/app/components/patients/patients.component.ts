@@ -10,7 +10,11 @@ import { PatientService } from './../../services/patient.service';
   styleUrls: ['./patients.component.scss'],
 })
 export class PatientsComponent implements OnInit {
-  patients: Observable<Patient[]>;
+  formButtonText = 'Añadir paciente';
+  descriptionForDeletion = '';
+  displayPatientForm = false;
+  displayConfirmDelete = false;
+  idForDeletion = '';
 
   patient: Patient = {
     patientId: '',
@@ -25,7 +29,7 @@ export class PatientsComponent implements OnInit {
   };
 
   patientForm = new FormGroup({
-    patientId: new FormControl(),
+    patientId: new FormControl(''),
     pDNI: new FormControl(''),
     pName: new FormControl(''),
     pLastN: new FormControl(''),
@@ -36,15 +40,9 @@ export class PatientsComponent implements OnInit {
     pFee: new FormControl(''),
   });
 
-  formButtonText = 'Añadir paciente';
-  displayPatientForm = false;
-  displayConfirmDelete = false;
-  idForDeletion = '';
-  descriptionForDeletion = '';
+  patients: Observable<Patient[]>;
 
-  constructor(
-    public patientService: PatientService
-  ) {
+  constructor(public patientService: PatientService) {
     this.patients = this.patientService.getPatients();
   }
 
@@ -56,17 +54,13 @@ export class PatientsComponent implements OnInit {
     this.patientForm.reset();
   }
 
-  openEditForm(id: string) {
+  editForm(id: string) {
     this.displayPatientForm = true;
     this.formButtonText = 'Actualizar paciente';
     this.patientService.getPatient(id).subscribe((data) => {
       this.patientForm.patchValue(data);
     });
     this.patientForm.reset();
-  }
-
-  updatePatient() {
-    this.patientService.updatePatient(this.patientForm.value);
   }
 
   formSubmit() {
@@ -78,14 +72,18 @@ export class PatientsComponent implements OnInit {
   }
 
   buttonAddPatient() {
+    this.patientForm.reset();
     this.displayPatientForm = true;
     this.formButtonText = 'Añadir paciente';
-    this.patientForm.reset();
   }
 
   cancel() {
     this.displayPatientForm = false;
     this.patientForm.reset();
     this.formButtonText = 'Añadir paciente';
+  }
+
+  updatePatient() {
+    this.patientService.updatePatient(this.patientForm.value);
   }
 }

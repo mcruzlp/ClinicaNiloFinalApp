@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   doctor: Doctor = {
+    doctorId: '',
     dName: '',
     dLastN: '',
     dGraduate: '',

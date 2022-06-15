@@ -8,5 +8,4 @@ export interface Patient {
   pAddr: string;
   pEmail: string;
   pFee?: string;
-  pRegDate?: string;
 }

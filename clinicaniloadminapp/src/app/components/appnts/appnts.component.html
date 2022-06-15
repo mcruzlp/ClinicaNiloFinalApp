@@ -21,18 +21,22 @@
         <th></th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-a>
+
+    <ng-template pTemplate="body" let-appnt>
+      <tr>{{doctorService.userEmail}}</tr>
+      <tr>{{doctorService.userDoctor | async | json }}</tr>
+      <tr>{{doctorService.theLostArk | async | json}}</tr>
       <tr>
-        <td>{{ a.date | date : 'dd/MM' }}</td>
-        <td>{{ a.date | date : 'HH:mm' }}</td>
-        <td>{{ a.patientId | patients | async }}</td>
+        <td>{{ appnt.date | date : 'dd/MM' }}</td>
+        <td>{{ appnt.date | date : 'HH:mm' }}</td>
+        <td>{{ appnt.patientId | patients | async }}</td>
         <td>
           <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
-            (click)="openEditForm(a.appntId)"></button>
+            (click)="editForm(appnt.appntId)"></button>
         </td>
         <td>
           <button pButton type="button" icon="pi pi-trash" class="p-button-rounded"
-            (click)="confirmDeleteAppnt(a.appntId)"></button>
+            (click)="confirmDeleteAppnt(appnt)"></button>
         </td>
       </tr>
     </ng-template>
@@ -67,8 +71,7 @@
 
   <p-dialog [(visible)]="displayConfirmDelete">
     <div class="card">
-      Vas a borrar esta cita, ¿quieres continuar?
-      <b>{{ descriptionForDeletion }}</b>
+      Vas a borrar la cita <b>{{ descriptionForDeletion | patients | async }}</b>, ¿quieres continuar?
     </div>
 
     <p-footer>

@@ -17,14 +17,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  pathToAppnts = `appointments`;
-  
   constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addAppnt(appnt: Appointment) {
     try {
       const docRef = await addDoc(
-        collection(this.firestore, this.pathToAppnts),
+        collection(this.firestore, `appointments`),
         appnt
       );
       console.log('Document written with ID: ', docRef.id);
@@ -34,31 +32,28 @@ export class AppntService {
   }
 
   getAppnts(): Observable<Appointment[]> {
-    return collectionData(collection(this.firestore, this.pathToAppnts), {
+    return collectionData(collection(this.firestore, `appointments`), {
       idField: 'appntId',
     }) as Observable<Appointment[]>;
   }
 
   getAppnt(id: string): Observable<Appointment> {
-    return docData(doc(this.firestore, `${this.pathToAppnts}/${id}`), {
+    return docData(doc(this.firestore, `appointments/${id}`), {
       idField: 'appntId',
     }) as Observable<Appointment>;
   }
 
-  getAppntsByDoctor(dName: string): Observable<Appointment[]> {
-    return collectionData(collection(this.firestore, this.pathToAppnts), {
+  /* getAppntsByDoctor(dName: string): Observable<Appointment[]> {
+    return collectionData(collection(this.firestore, `appointments`), {
       idField: 'dName',
     }) as Observable<Appointment[]>;
+  } */
+
+  async updateAppnt(appnt: Appointment) {
+    await setDoc(doc(this.firestore, `appointments/${appnt.appntId}`), appnt);
   }
 
   async deleteAppnt(id: string) {
-    await deleteDoc(doc(this.firestore, `${this.pathToAppnts}/${id}`));
-  }
-
-  async updateAppnt(appnt: Appointment) {
-    await setDoc(
-      doc(this.firestore, `${this.pathToAppnts}/${appnt.appntId}`),
-      appnt
-    );
+    await deleteDoc(doc(this.firestore, `appointments/${id}`));
   }
 }

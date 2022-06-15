@@ -11,13 +11,14 @@ export class PatientsPipe implements PipeTransform {
 
   async transform(patientId: string): Promise<string> {
     let patient: Patient = {
+      patientId: '',
       pName: '',
       pLastN: '',
       pDNI: '',
       pBDate: '',
       pTlfn: '',
       pAddr: '',
-      pEmail: ''
+      pEmail: '',
     };
     let patientName: string = '';
     let patientLastName: string = '';

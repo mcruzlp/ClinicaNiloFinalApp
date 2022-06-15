@@ -15,6 +15,7 @@ export class LogupComponent implements OnInit {
   password: string = '';
 
   doctor: Doctor = {
+    doctorId: '',
     dName: '',
     dLastN: '',
     dGraduate: '',

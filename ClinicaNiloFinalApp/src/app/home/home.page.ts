@@ -8,15 +8,12 @@ import { Patient } from './../model/patient';
 import { PatientService } from './../services/patient.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  title = 'Clínica Nilo';
-
   appointments: Observable<Appointment[]> = this.appntService.getAppnts();
 
   constructor(

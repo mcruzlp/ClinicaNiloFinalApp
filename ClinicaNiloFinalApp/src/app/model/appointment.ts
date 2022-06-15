@@ -1,8 +1,6 @@
 export interface Appointment {
-  appntId?: string;
-  pName: string;
-  dName: string;
+  appntId: string;
   date: string;
-  hour: string;
-  notes: string;
+  doctorId: string;
+  patientId: string;
 }

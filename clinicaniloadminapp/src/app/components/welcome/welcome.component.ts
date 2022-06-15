@@ -14,7 +14,7 @@ export class WelcomeComponent implements OnInit {
   password = '';
 
   constructor(
-    public authService: AuthService,
+    public auth: AuthService,
     private messageService: MessageService,
     private router: Router
   ) {}
@@ -22,10 +22,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit(): void {}
 
   async login() {
-    const connectionSuccess = await this.authService.login(
-      this.email,
-      this.password
-    );
+    const connectionSuccess = await this.auth.login(this.email, this.password);
     if (connectionSuccess) {
       this.router.navigateByUrl('/appnts');
     } else {

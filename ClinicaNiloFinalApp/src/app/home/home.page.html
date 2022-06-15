@@ -30,32 +30,14 @@
           </ion-button>
         </ion-toolbar>
       </ion-header>
-      <!-- TODO: Mostrar sólo las dos primeras citas disponibles -->
       <ion-list>
         <ion-item *ngFor="let appnt of appointments | async">
-          <ion-label class="item">{{ appnt.dName }}</ion-label>
           <ion-label class="item">{{ appnt.date | date : 'dd/MM'}}</ion-label>
           <ion-label class="item">{{ appnt.date | date : 'HH:mm'}}</ion-label>
+          <ion-label class="item">{{ appnt.doctorId | doctors |async }}</ion-label>
         </ion-item>
       </ion-list>
     </ion-card>
-
-    <!-- <ion-card id="myDocs">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Especialistas</ion-title>
-          <ion-button slot="end" (click)="addAppnt()">
-            <ion-icon name="add"></ion-icon>
-          </ion-button>
-        </ion-toolbar>
-      </ion-header>
-      <ion-list *ngFor="let doc of specialists | async">
-        <ion-item>
-          <ion-label class="item">{{ doc.avatar }}</ion-label>
-          <ion-label class="item">{{ doc.name }}</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card> -->
   </div>
 </ion-content>
 
