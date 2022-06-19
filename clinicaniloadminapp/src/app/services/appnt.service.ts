@@ -9,6 +9,7 @@ import {
   doc,
   setDoc,
   docData,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -17,6 +18,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
+  currentAppntId: string = '';
   constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addAppnt(appnt: Appointment) {
@@ -25,7 +27,10 @@ export class AppntService {
         collection(this.firestore, `appointments`),
         appnt
       );
-      console.log('Document written with ID: ', docRef.id);
+      await updateDoc(docRef, {
+        appntId: docRef.id,
+      });
+      this.currentAppntId = docRef.id;
     } catch (e) {
       console.error('Error adding document: ', e);
     }

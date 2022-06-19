@@ -10,6 +10,7 @@ import {
   getDoc,
   setDoc,
   docData,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -18,8 +19,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PatientService {
-  pathToPatients = `patients`;
-
   constructor(
     private firestore: Firestore,
     public auth: AuthService
@@ -28,9 +27,12 @@ export class PatientService {
   async addPatient(patient: Patient) {
     try {
       const docRef = await addDoc(
-        collection(this.firestore, this.pathToPatients),
+        collection(this.firestore, `patients`),
         patient
       );
+      await updateDoc(docRef, {
+        patientId: docRef.id,
+      });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
@@ -38,23 +40,23 @@ export class PatientService {
   }
 
   getPatients(): Observable<Patient[]> {
-    return collectionData(collection(this.firestore, this.pathToPatients), {
+    return collectionData(collection(this.firestore, `patients`), {
       idField: 'patientId',
     }) as Observable<Patient[]>;
   }
 
   getPatient(id: string): Observable<Patient> {
-    return docData(doc(this.firestore, `${this.pathToPatients}/${id}`), {
+    return docData(doc(this.firestore, `patients/${id}`), {
       idField: 'patientId',
     }) as Observable<Patient>;
   }
 
   async deletePatient(id: string) {
-    await deleteDoc(doc(this.firestore, `${this.pathToPatients}/${id}`));
+    await deleteDoc(doc(this.firestore, `patients/${id}`));
   }
   async updatePatient(patient: Patient) {
     await setDoc(
-      doc(this.firestore, `${this.pathToPatients}/${patient.patientId}`),
+      doc(this.firestore, `patients/${patient.patientId}`),
       patient
     );
   }

@@ -1,7 +1,8 @@
-import { AuthService } from './../../services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Doctor } from './../../model/doctor';
 import { DoctorService } from './../../services/doctor.service';
-import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  currentDoctorId: string = '';
+
   doctor: Doctor = {
     doctorId: '',
     dName: '',
@@ -19,11 +22,33 @@ export class ProfileComponent implements OnInit {
     dEmail: '',
   };
 
-  constructor(
-    public auth: AuthService,
-    public doctorService: DoctorService,
-    private router: Router
-  ) {}
+  doctorForm = new FormGroup({
+    doctorId: new FormControl(),
+    dName: new FormControl(''),
+    dLastN: new FormControl(''),
+    dGraduate: new FormControl(''),
+    dTlfn: new FormControl(''),
+    dEmail: new FormControl(''),
+  });
 
-  ngOnInit(): void {}
+  doctors: Observable<Doctor[]>;
+
+  constructor(public doctorService: DoctorService, private router: Router) {
+    this.doctors = this.doctorService.getDoctors();
+  }
+
+  ngOnInit() {
+    /* this.doctorService.userDoctor.subscribe((data) => {
+      this.doctorForm.patchValue(data);
+    }); */
+  }
+
+  updateDoctor() {
+    this.doctorService.updateDoctor(this.doctorForm.value);
+  }
+
+  formSubmit() {
+    this.updateDoctor();
+    this.router.navigateByUrl('/appnts');
+  }
 }

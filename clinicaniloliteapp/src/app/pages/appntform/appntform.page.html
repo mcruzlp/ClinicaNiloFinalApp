@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Nueva cita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Fecha</ion-label>
+        <ion-input [(ngModel)]="appnt.date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Paciente</ion-label>
+        <ion-select placeholder="Selecciona paciente">
+          <ion-select-option *ngFor="let p of patients | async" [(ngModel)]="appnt.patientId">{{p.patientId}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button expand="full" (click)="addAppnt()">
+        Guardar
+      </ion-button>
+    </ion-list>
+  </ion-content>

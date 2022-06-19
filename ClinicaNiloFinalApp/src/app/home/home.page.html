@@ -34,7 +34,7 @@
         <ion-item *ngFor="let appnt of appointments | async">
           <ion-label class="item">{{ appnt.date | date : 'dd/MM'}}</ion-label>
           <ion-label class="item">{{ appnt.date | date : 'HH:mm'}}</ion-label>
-          <ion-label class="item">{{ appnt.doctorId | doctors |async }}</ion-label>
+          <!-- <ion-label class="item">{{ appnt.doctorId | doctors | async }}</ion-label> -->
         </ion-item>
       </ion-list>
     </ion-card>

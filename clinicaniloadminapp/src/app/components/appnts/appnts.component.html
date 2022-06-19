@@ -1,9 +1,11 @@
 <p-panel header="Citas">
+
   <ng-template pTemplate="icons">
     <button pButton (click)="buttonAddAppnt()">
       <span class="pi pi-plus"></span>
     </button>
   </ng-template>
+
   <p-table [value]="(appnts | async)!" [paginator]="true" [rows]="7">
     <ng-template pTemplate="header">
       <tr>
@@ -23,9 +25,6 @@
     </ng-template>
 
     <ng-template pTemplate="body" let-appnt>
-      <tr>{{doctorService.userEmail}}</tr>
-      <tr>{{doctorService.userDoctor | async | json }}</tr>
-      <tr>{{doctorService.theLostArk | async | json}}</tr>
       <tr>
         <td>{{ appnt.date | date : 'dd/MM' }}</td>
         <td>{{ appnt.date | date : 'HH:mm' }}</td>
@@ -45,7 +44,6 @@
   <!-- Form dialog-->
   <p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw', height: '20vw' }">
     <ng-template pTemplate="header"> Cita </ng-template>
-
     <form [formGroup]="appntForm" (ngSubmit)="formSubmit()">
       <div class="card">
         <div class="field">
@@ -55,7 +53,8 @@
         &nbsp;
         <div class="field">
           <label for="pName">Paciente: </label>
-          <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true" [showClear]="true" placeholder="Select Item"></p-dropdown>
+          <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true" [showClear]="true"
+            placeholder="Select Item"></p-dropdown>
         </div>
         &nbsp;
       </div>
@@ -68,12 +67,10 @@
   </p-dialog>
 
   <!-- Delete confirmation dialog -->
-
   <p-dialog [(visible)]="displayConfirmDelete">
     <div class="card">
       Vas a borrar la cita <b>{{ descriptionForDeletion | patients | async }}</b>, ¿quieres continuar?
     </div>
-
     <p-footer>
       <p-button (click)="deleteAppnt()" label="Sí"> </p-button>
       <p-button (click)="displayConfirmDelete = false" label="No"> </p-button>

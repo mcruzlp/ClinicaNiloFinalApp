@@ -1,14 +1,34 @@
-<p-card header="Advanced Card" subheader="Card Subheader" [style]="{width: '360px'}" styleClass="p-card-shadow">
-  <ng-template pTemplate="header">
-    <p-avatar image="user.png" size="large"></p-avatar>
-    {{doctor.dName}}
-  </ng-template>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam
-    deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
-  <ng-template pTemplate="footer">
-    <p-button label="Save" icon="pi pi-check"></p-button>
-    <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{'margin-left': '.5em'}">
-    </p-button>
-  </ng-template>
+<p-card header="Perfil" [style]="{width: '100%'}" styleClass="p-card-shadow">
+  <form [formGroup]="doctorForm" (ngSubmit)="updateDoctor()">
+    <div>
+      <div>
+        <label for="dName">Nombre: </label>
+        <input pInputText id="dName" type="text" formControlName="dName" class="inputfield w-full" />
+      </div>
+
+      <div>
+        <label for="dLastN">Apellidos: </label>
+        <input pInputText id="dLastN" type="text" formControlName="dLastN" class="inputfield w-full" />
+      </div>
+
+      <div>
+        <label for="dGraduate">Nº de Colegiado: </label>
+        <input pInputText id="dGraduate" type="text" formControlName="dGraduate" class="inputfield w-full" />
+      </div>
+
+      <div>
+        <label for="dTlfn">Teléfono: </label>
+        <input pInputText id="dTlfn" formControlName="dTlfn" type="text" class="inputfield w-full" />
+      </div>
+
+      <div>
+        <label for="dEmail">Email: </label>
+        <input pInputText id="dEmail" clearInput formControlName="dEmail" type="text" class="inputfield w-full" />
+      </div>
+    </div>
+
+    <p-footer>
+      <p-button type="submit" styleClass="p-button-success" label="Guardar cambios"></p-button>
+    </p-footer>
+  </form>
 </p-card>

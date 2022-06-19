@@ -9,7 +9,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
-// hay guardas para que no entres en la página de login si ya estás registrado y que no entre en la home si no lo estás
 const routes: Routes = [
   {
     path: 'home',

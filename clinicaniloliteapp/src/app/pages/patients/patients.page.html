@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pacientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="displayModal()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let p of patients | async">
+      <ion-chip>
+        <ion-avatar>
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+        </ion-avatar>
+        <ion-label class="item">{{ p.pName }}</ion-label>
+        &nbsp;
+        <ion-label class="item">{{ p.pLastN }}</ion-label>
+      </ion-chip>
+      <ion-label class="item">{{ p.pTlfn }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-modal [isOpen]="showModal">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="displayModal()">
+            <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Nombre</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Apellidos</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pLastN"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>DNI</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pDNI"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Fecha de nacimiento</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pBDate"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Teléfono</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pTlfn"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Dirección</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pAddr"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Correo electrónico</ion-label>
+          <ion-input class="item" clearInput [(ngModel)]="patient.pEmail"></ion-input>
+        </ion-item>
+        <ion-button expand="full" (click)="addPatient()">
+          Guardar
+        </ion-button>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>

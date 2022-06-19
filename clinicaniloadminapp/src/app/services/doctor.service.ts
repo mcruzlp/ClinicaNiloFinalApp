@@ -6,11 +6,17 @@ import {
   addDoc,
   deleteDoc,
   doc,
-  setDoc,
   docData,
+  setDoc,
+  updateDoc,
+  query,
+  where,
+  getDocs,
+  getDoc,
+  onSnapshot,
 } from '@angular/fire/firestore';
 import { Doctor } from './../model/doctor';
-import { filter, first, map } from 'rxjs/operators';
+import { filter, first, map, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -18,10 +24,28 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DoctorService {
-  pathToDoctorUserId = `doctors/${this.auth.getCurrentUser()?.uid}`;
-  userEmail = this.auth.getCurrentUser()?.email;
+  userEmail: any = this.auth.getCurrentUser()?.email;
+  /*
+  Intento de query
 
-  constructor(public auth: AuthService, private firestore: Firestore) {}
+
+  doctorsRef = collection(this.firestore, `doctors`);
+  qDoctor = query(this.doctorsRef, where(`dEmail`, `==`, this.userEmail));
+  userDoctor = getDoc(this.qDoctor); */
+
+  /*
+  Otra opción es obtener las actualizaciones en tiempo real
+  */
+
+  constructor(public auth: AuthService, private firestore: Firestore) {
+    /* this.unsub = onSnapshot(
+      doc(collection(this.firestore, `doctors`), this.userEmail),
+      (doc) => {
+        console.log('Current data: ', doc.data());
+        console.log(this.userEmail);
+      }
+    ); */
+  }
 
   async addDoctor(doctor: Doctor) {
     try {
@@ -29,6 +53,9 @@ export class DoctorService {
         collection(this.firestore, `doctors`),
         doctor
       );
+      await updateDoc(docRef, {
+        doctorId: docRef.id,
+      });
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
@@ -36,6 +63,7 @@ export class DoctorService {
   }
 
   getDoctors(): Observable<Doctor[]> {
+    console.log(this.userEmail);
     return collectionData(collection(this.firestore, `doctors`), {
       idField: 'doctorId',
     }) as Observable<Doctor[]>;
@@ -47,28 +75,11 @@ export class DoctorService {
     }) as Observable<Doctor>;
   }
 
-  getDoctorByUser(): Observable<Doctor[]> {
-    return docData(doc(this.firestore, this.pathToDoctorUserId), {
-      idField: 'doctorId',
-    }) as Observable<Doctor[]>;
+  async updateDoctor(doctor: Doctor) {
+    await setDoc(doc(this.firestore, `doctors/${doctor.doctorId}`), doctor);
   }
-
-  theLostArk = this.getDoctorByUser();
-
-  /* getUserDoctor(): Promise<Doctor> {
-    return this.getDoctors().pipe(
-      filter((doctor: Doctor) => doctor.dEmail === this.userEmail)
-    );
-  } */
-
-  userDoctor = this.getDoctors().pipe(
-    filter((doctor: any) => doctor.dEmail === this.userEmail)
-  );
 
   async deleteDoctor(id: string) {
     await deleteDoc(doc(this.firestore, `doctors/${id}`));
-  }
-  async updateDoctor(doctor: Doctor) {
-    await setDoc(doc(this.firestore, `doctors/${doctor.doctorId}`), doctor);
   }
 }

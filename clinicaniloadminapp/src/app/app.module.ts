@@ -32,6 +32,7 @@ import {
 
 //pipes
 import { PatientsPipe } from './pipes/patients.pipe';
+import { DoctorsPipe } from './pipes/doctors.pipe';
 
 //primeng
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -56,8 +57,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +70,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
     //pipes
     PatientsPipe,
+      DoctorsPipe,
   ],
   imports: [
     AppRoutingModule,

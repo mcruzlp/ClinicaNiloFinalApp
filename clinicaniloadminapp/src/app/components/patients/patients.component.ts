@@ -29,7 +29,7 @@ export class PatientsComponent implements OnInit {
   };
 
   patientForm = new FormGroup({
-    patientId: new FormControl(''),
+    patientId: new FormControl(),
     pDNI: new FormControl(''),
     pName: new FormControl(''),
     pLastN: new FormControl(''),

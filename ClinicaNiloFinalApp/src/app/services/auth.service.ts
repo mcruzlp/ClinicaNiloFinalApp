@@ -49,14 +49,4 @@ export class AuthService {
   resetPassword(email: string): Promise<void> {
     return sendPasswordResetEmail(this.auth, email);
   }
-
-  /* deleteAcount(user) {
-    return deleteUser(this.user).then(
-      () => true,
-      (error) => {
-        console.error(error);
-        return false;
-      }
-    );
-  } */
 }

@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <app-topnav></app-topnav>
+</ion-header>
+
+<app-menu></app-menu>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <div class="top">
+      <!-- <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+        </ion-avatar>
+        <ion-label>
+          <h3>Mi nombre</h3>
+          <p>{{this.auth.getCurrentUser().email | async }}</p>
+        </ion-label>
+      </ion-item> -->
+    </div>
+
+    <ion-card id="nextAppnt">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Próximas citas</ion-title>
+          <ion-button slot="end" (click)="bookAppnt()">
+            <ion-icon name="add"></ion-icon>
+          </ion-button>
+        </ion-toolbar>
+      </ion-header>
+      <ion-list>
+        <ion-item *ngFor="let a of appnts | async">
+          <ion-label class="item">{{ a.date | date : 'dd/MM'}}</ion-label>
+          <ion-label class="item">{{ a.date | date : 'HH:mm'}}</ion-label>
+          <!-- <ion-label class="item">{{ a.patientId | patients | async }}</ion-label> -->
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+</ion-content>

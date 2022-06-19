@@ -50,7 +50,6 @@ export class AppntsComponent implements OnInit {
 
   addAppnt() {
     this.formButtonText = 'Añadir cita';
-    this.appntForm.value.appntId = this.currentAppntId;
     this.appntForm.value.doctorId = this.currentDoctorId;
     this.appntService.addAppnt(this.appntForm.value);
     this.appntForm.reset();

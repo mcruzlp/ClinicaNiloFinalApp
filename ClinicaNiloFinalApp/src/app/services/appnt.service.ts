@@ -10,8 +10,7 @@ import {
   doc,
   docData,
   setDoc,
-  query,
-  where,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Doctor } from './../model/doctor';
 import { DoctorService } from './doctor.service';
@@ -23,8 +22,6 @@ import { Observable } from 'rxjs';
 })
 export class AppntService {
   pathToAppnts = `appointments`;
-  /* pathToAppnts = `appointments/${this.auth.getCurrentUser().uid}`; */
-  /*pathToDoctorAppnts = `appointments/${this.appointment.appntId}`;*/
 
   constructor(
     private firestore: Firestore,
@@ -35,7 +32,13 @@ export class AppntService {
 
   async addAppnt(appointment: Appointment) {
     try {
-      await addDoc(collection(this.firestore, this.pathToAppnts), appointment);
+      const docRef = await addDoc(
+        collection(this.firestore, this.pathToAppnts),
+        appointment
+      );
+      await updateDoc(docRef, {
+        appntId: docRef.id,
+      });
     } catch (e) {
       console.error('Error adding document: ', e);
     }

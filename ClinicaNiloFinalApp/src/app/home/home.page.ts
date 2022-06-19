@@ -3,6 +3,7 @@ import { Appointment } from './../model/appointment';
 import { AppntService } from './../services/appnt.service';
 import { AuthService } from './../services/auth.service';
 import { Component } from '@angular/core';
+import { DoctorsPipe } from './../pipes/doctors.pipe';
 import { Observable } from 'rxjs';
 import { Patient } from './../model/patient';
 import { PatientService } from './../services/patient.service';
@@ -17,10 +18,10 @@ export class HomePage {
   appointments: Observable<Appointment[]> = this.appntService.getAppnts();
 
   constructor(
-    private appntService: AppntService,
-    private authService: AuthService,
+    public appntService: AppntService,
+    public authService: AuthService,
     private alertController: AlertController,
-    private patientService: PatientService,
+    public patientService: PatientService,
     private router: Router
   ) {}
 

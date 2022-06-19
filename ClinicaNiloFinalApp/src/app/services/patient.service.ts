@@ -10,8 +10,7 @@ import {
   getDocs,
   setDoc,
   docData,
-  query,
-  where,
+  updateDoc,
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { map, filter, scan } from 'rxjs/operators';
@@ -37,6 +36,9 @@ export class PatientService {
         collection(this.firestore, this.pathToPatients),
         patient
       );
+      await updateDoc(docRef, {
+        patientId: docRef.id,
+      });
     } catch (e) {
       console.error('Error adding document: ', e);
     }

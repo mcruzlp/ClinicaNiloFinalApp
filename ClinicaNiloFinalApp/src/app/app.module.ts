@@ -15,7 +15,6 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 //pipes
 import { DoctorsPipe } from './pipes/doctors.pipe';
 
-
 @NgModule({
   declarations: [AppComponent, DoctorsPipe],
   entryComponents: [],
