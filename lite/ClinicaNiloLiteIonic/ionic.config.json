@@ -1,0 +1,7 @@
+{
+  "name": "ClinicaNiloLiteIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

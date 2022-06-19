@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-chip *ngFor="let a of appnts | async">
+    <ion-label>{{ a.date }}</ion-label>
+    &nbsp;
+    <ion-label>{{ a.patientId }}</ion-label>
+    &nbsp;
+    <ion-icon name="pencil" (click)="goEditItem(a.appntId)"></ion-icon>
+    <ion-icon name="close-circle" (click)="appntService.deleteAppnt(a.appntId)">
+    </ion-icon>
+  </ion-chip>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addAppnt()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

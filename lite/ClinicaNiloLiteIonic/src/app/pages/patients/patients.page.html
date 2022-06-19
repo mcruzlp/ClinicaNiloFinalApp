@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pacientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-chip *ngFor="let p of patients | async">
+    <ion-label>{{ p.pName }}</ion-label>
+    &nbsp;
+    <ion-label>{{ p.pLastN }}</ion-label>
+    &nbsp;
+    <ion-icon name="pencil" (click)="goEditItem(p.patientId)"></ion-icon>
+    &nbsp;
+    <ion-icon name="close-circle" (click)="patientService.deletePatient(p.patientId)">
+    </ion-icon>
+  </ion-chip>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="AddPatient()" color="success">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

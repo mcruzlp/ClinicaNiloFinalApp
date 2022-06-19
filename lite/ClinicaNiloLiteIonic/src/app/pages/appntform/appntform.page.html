@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="appnts"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Fecha y hora</ion-label>
+      <ion-input clearInput [(ngModel)]="appnt.date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Paciente</ion-label>
+      <ion-input clearInput [(ngModel)]="appnt.patientId"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="addAppnt()">
+    Guardar
+  </ion-button>
+</ion-content>

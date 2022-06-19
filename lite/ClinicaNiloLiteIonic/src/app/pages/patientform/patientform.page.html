@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="patients"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pLastN"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">DNI</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pDNI"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">F. nacimiento</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pBDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pTlfn"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Dirección</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pAddr"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pEmail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tarifa</ion-label>
+      <ion-input clearInput [(ngModel)]="patient.pFee"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="addPatient()">
+    Guardar
+  </ion-button>
+</ion-content>
