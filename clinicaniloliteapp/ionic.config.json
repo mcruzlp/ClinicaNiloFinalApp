@@ -1,7 +1,0 @@
-{
-  "name": "clinicaniloliteapp",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
