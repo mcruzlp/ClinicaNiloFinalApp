@@ -15,8 +15,8 @@
     </ion-item>
     <ion-item>
       <ion-label position="floating">Paciente</ion-label>
-      <ion-select placeholder="Selecciona paciente">
-        <ion-select-option *ngFor="let p of patients | async" [value]="appnt.patientId">{{p.patientId}}</ion-select-option>
+      <ion-select placeholder="Selecciona paciente" [(ngModel)]="appnt.pName">
+        <ion-select-option *ngFor="let p of patients | async" [value]="p.pName + ' ' + p.pLastN">{{p.pName + ' ' + p.pLastN}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>

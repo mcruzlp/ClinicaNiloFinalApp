@@ -1,3 +1,4 @@
+import { PatientsPipe } from './../../pipes/patients.pipe';
 import { AppntService } from './../../services/appnt.service';
 import { Appointment } from './../../model/appointment';
 import { Component, OnInit } from '@angular/core';

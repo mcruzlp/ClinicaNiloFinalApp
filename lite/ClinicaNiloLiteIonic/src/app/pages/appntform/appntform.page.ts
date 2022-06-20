@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./appntform.page.scss'],
 })
 export class AppntformPage implements OnInit {
-  appnt: Appointment = { appntId: '', date: '', patientId: '' };
+  appnt: Appointment = { appntId: '', date: '', pName: '' };
   pageTitle: string = 'Nueva cita';
   action: string = 'create';
   id: string = '';

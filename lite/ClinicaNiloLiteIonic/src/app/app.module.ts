@@ -17,8 +17,12 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 //mycomponents
 import { MenuComponent } from './components/menu/menu.component';
 
+//pipes
+import { PatientsPipe } from './pipes/patients.pipe';
+
+
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent, MenuComponent, PatientsPipe],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
