@@ -7,11 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding ion-text-center">
+  <ion-toolbar>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-toolbar>
   <ion-list>
     <ion-item>
       <ion-label position="floating">Fecha y hora</ion-label>
-      <ion-input clearInput [(ngModel)]="appnt.date"></ion-input>
+      <ion-input placeholder="DD/MM/AAAA HH:mm" clearInput [(ngModel)]="appnt.date"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Paciente</ion-label>
@@ -20,7 +23,10 @@
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-button expand="full" (click)="saveAppnt()">
+  <ion-button expand="block" shape="round" (click)="saveAppnt()">
     Guardar
+  </ion-button>
+  <ion-button expand="block" color="danger" shape="round" href="appnts">
+    Cancelar
   </ion-button>
 </ion-content>

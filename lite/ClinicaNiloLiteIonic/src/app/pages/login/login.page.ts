@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
       this.password
     );
     if (connectionSuccess) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/appnts');
     } else {
       this.presentAlert();
     }

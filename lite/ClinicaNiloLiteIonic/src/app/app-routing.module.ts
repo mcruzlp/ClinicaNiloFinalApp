@@ -7,19 +7,19 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['appnts']);
 
 const routes: Routes = [
-  {
+  /* {
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule),
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
+  }, */
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'appnts',
     pathMatch: 'full',
   },
   {
@@ -104,7 +104,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'appnts',
     pathMatch: 'full',
   },
 ];

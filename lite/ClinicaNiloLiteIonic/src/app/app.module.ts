@@ -19,10 +19,11 @@ import { MenuComponent } from './components/menu/menu.component';
 
 //pipes
 import { PatientsPipe } from './pipes/patients.pipe';
+import { DatesPipe } from './pipes/dates.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, PatientsPipe],
+  declarations: [AppComponent, MenuComponent, PatientsPipe, DatesPipe],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

@@ -28,7 +28,7 @@ export class LogupPage implements OnInit {
       this.password
     );
     if (registerSuccess) {
-      this.router.navigateByUrl('/home');
+      this.router.navigateByUrl('/appnts');
     } else {
       this.presentAlert();
     }

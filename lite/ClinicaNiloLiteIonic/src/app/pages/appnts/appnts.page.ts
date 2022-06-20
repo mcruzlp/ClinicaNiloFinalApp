@@ -1,3 +1,4 @@
+import { DatesPipe } from './../../pipes/dates.pipe';
 import { PatientsPipe } from './../../pipes/patients.pipe';
 import { AppntService } from './../../services/appnt.service';
 import { Appointment } from './../../model/appointment';

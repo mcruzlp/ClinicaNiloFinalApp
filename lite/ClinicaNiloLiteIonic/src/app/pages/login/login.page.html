@@ -1,41 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="welcome"></ion-back-button>
+      <ion-back-button defaultHref="wlcm"></ion-back-button>
     </ion-buttons>
     <ion-title>Inicio de sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding ion-text-center">
+  <ion-toolbar>
+    <ion-icon name="person" class="person"></ion-icon>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-icon name="person-circle-outline" class="person"></ion-icon>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-label>Correo electrónico</ion-label>
-        <ion-input clearInput class="text" [(ngModel)]="email">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col class="ion-text-center">
-        <ion-label>Contraseña</ion-label>
+    <ion-list class="ion-text-center">
+      <ion-label class="ion-text-center">Correo electrónico</ion-label>
+      <ion-item>
+        <ion-input clearInput class="text" [(ngModel)]="email"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list class="ion-text-center">
+      <ion-label class="ion-text-center">Contraseña</ion-label>
+      <ion-item>
         <ion-input clearInput class="text" type="password" [(ngModel)]="password">
         </ion-input>
-      </ion-col>
-    </ion-row>
+      </ion-item>
+    </ion-list>
   </ion-grid>
-  <ion-button expand="block" class="text capitalize" color="success" shape="round" (click)="login()">
+  <ion-button expand="block" class="text capitalize" shape="round" (click)="login()">
     Aceptar
   </ion-button>
+  <br>
   <a class="text" href="/logup">
     <ion-icon name="person-add"></ion-icon>
     Crear una cuenta
   </a>
+  <br>
   <br>
   <a class="text" href="/forgot">
     <ion-icon name="mail"></ion-icon>

@@ -14,6 +14,8 @@ import {
 } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, filter, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root',
