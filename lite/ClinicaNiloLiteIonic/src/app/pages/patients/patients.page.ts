@@ -4,7 +4,6 @@ import { PatientService } from './../../services/patient.service';
 import { Patient } from './../../model/patient';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.page.html',

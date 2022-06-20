@@ -8,16 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-chip *ngFor="let a of appnts | async">
+  <ion-item *ngFor="let a of appnts | async">
     <ion-label>{{ a.date }}</ion-label>
     &nbsp;
-    <ion-label>{{ a.patientId }}</ion-label>
+    <ion-chip>
+      <ion-avatar>
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+      </ion-avatar>
+      <ion-label>{{ a.patientId }}</ion-label>
+    </ion-chip>
     &nbsp;
     <ion-icon name="pencil" (click)="goEditItem(a.appntId)"></ion-icon>
-    <ion-icon name="close-circle" (click)="appntService.deleteAppnt(a.appntId)">
-    </ion-icon>
-  </ion-chip>
-
+    <ion-icon name="close-circle" (click)="appntService.deleteAppnt(a.appntId)"></ion-icon>
+  </ion-item>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="addAppnt()">

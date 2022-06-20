@@ -20,7 +20,7 @@ export class PatientformPage implements OnInit {
     pEmail: '',
     pFee: '',
   };
-  pageTitle: string = 'Nuevo elemento';
+  pageTitle: string = 'Nuevo paciente';
   action: string = 'create';
   id: string = '';
 
@@ -34,7 +34,7 @@ export class PatientformPage implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id != null) {
       // edit mode
-      this.pageTitle = 'Editar elemento';
+      this.pageTitle = 'Editar paciente';
       this.action = 'edit';
       this.patientService
         .getPatient(this.id)

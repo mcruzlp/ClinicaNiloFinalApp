@@ -66,7 +66,7 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
-    path: 'edit-appntform',
+    path: 'edit-appntform/:id',
     loadChildren: () =>
       import('./pages/appntform/appntform.module').then(
         (m) => m.AppntformPageModule

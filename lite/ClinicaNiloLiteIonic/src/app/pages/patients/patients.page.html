@@ -8,16 +8,25 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-chip *ngFor="let p of patients | async">
-    <ion-label>{{ p.pName }}</ion-label>
+  <ion-item *ngFor="let p of patients | async">
+    <ion-chip>
+      <ion-avatar>
+        <img
+          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+      </ion-avatar>
+      <ion-label>{{ p.pName }}</ion-label>
+      &nbsp;
+      <ion-label>{{ p.pLastN }}</ion-label>
+    </ion-chip>
     &nbsp;
-    <ion-label>{{ p.pLastN }}</ion-label>
     &nbsp;
+    <ion-label>{{ p.pTlfn }}</ion-label>
+
     <ion-icon name="pencil" (click)="goEditItem(p.patientId)"></ion-icon>
-    &nbsp;
     <ion-icon name="close-circle" (click)="patientService.deletePatient(p.patientId)">
     </ion-icon>
-  </ion-chip>
+  </ion-item>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="AddPatient()" color="success">
       <ion-icon name="add"></ion-icon>
