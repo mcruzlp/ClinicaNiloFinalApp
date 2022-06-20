@@ -19,7 +19,7 @@ import { Patient } from './../model/patient';
   providedIn: 'root',
 })
 export class PatientService {
-  pathToPatients = `users/${this.authService.getCurrentUser().uid}/patients`;
+  pathToPatients = `patients`;
 
   constructor(private firestore: Firestore, private authService: AuthService) {}
 
