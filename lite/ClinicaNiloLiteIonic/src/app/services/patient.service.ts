@@ -1,3 +1,4 @@
+import { LocalUser } from './../model/localuser';
 import { AuthService } from './auth.service';
 import {
   collection,
@@ -20,8 +21,12 @@ import { Patient } from './../model/patient';
 })
 export class PatientService {
   pathToPatients = `patients`;
+  localData: LocalUser;
 
-  constructor(private firestore: Firestore, private authService: AuthService) {}
+  constructor(
+    private firestore: Firestore,
+    private authService: AuthService,
+  ) {}
 
   async addPatient(patient: Patient) {
     try {
@@ -32,6 +37,7 @@ export class PatientService {
       await updateDoc(docRef, {
         patientId: docRef.id,
       });
+      /* this.localData.localpatientId = docRef.id; */
       console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
@@ -49,6 +55,12 @@ export class PatientService {
       idField: 'patientId',
     }) as Observable<Patient>;
   }
+
+  /* getLastPatient():  Observable<Patient> {
+    return this.getPatient(
+      this.localData.localpatientId
+    ) as Observable<Patient>;
+  } */
 
   async deletePatient(id: string) {
     await deleteDoc(doc(this.firestore, `${this.pathToPatients}/${id}`));

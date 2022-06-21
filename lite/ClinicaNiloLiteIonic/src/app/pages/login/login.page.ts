@@ -1,3 +1,5 @@
+import { LocalService } from './../../services/local.service';
+import { LocalUser } from './../../model/localuser';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,10 +13,13 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   email: string;
   password: string;
+  userEmail: LocalUser = {localUserEmail: ''};
+  remember: boolean = false;
 
   constructor(
     private alertController: AlertController,
     public authService: AuthService,
+    public localService: LocalService,
     private router: Router
   ) {}
 
@@ -26,6 +31,9 @@ export class LoginPage implements OnInit {
       this.password
     );
     if (connectionSuccess) {
+      if (this.remember) {
+        this.localService.saveLocalData(this.remember, this.email);
+      }
       this.router.navigateByUrl('/appnts');
     } else {
       this.presentAlert();

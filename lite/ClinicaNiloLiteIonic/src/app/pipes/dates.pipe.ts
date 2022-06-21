@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DatesPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    let minDate = value.sort((a: any, b: any) => {
+    /* let minDate = value.sort((a: any, b: any) => {
       let date1 = new Date(a.date);
       let date2 = new Date(b.date);
 
@@ -22,6 +22,6 @@ export class DatesPipe implements PipeTransform {
       }
     });
 
-    return minDate;
+    return minDate; */
   }
 }

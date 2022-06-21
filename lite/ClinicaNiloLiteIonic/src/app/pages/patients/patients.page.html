@@ -6,35 +6,65 @@
     <ion-title>Pacientes</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  <ion-toolbar class="ion-padding">
-    <ion-fab horizontal="end">
-      <ion-fab-button (click)="AddPatient()">
+<ion-toolbar class="ion-padding">
+    <ion-fab vertical="top" horizontal="end">
+      <ion-fab-button size="small" (click)="AddPatient()">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>
     &nbsp;
     <ion-title>Pacientes</ion-title>
   </ion-toolbar>
-  <ion-item *ngFor="let p of patients | async">
-    <ion-chip>
-      <ion-avatar>
-        <img
-          src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
-      </ion-avatar>
-      <ion-label>{{ p.pName }}</ion-label>
+<ion-content>
+<!-- last added patient -->
+  <!--   <ng-template let-lastPatient | async>
+    <ion-card-content>
+      Último paciente añadido
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name="person-add" slot="start"></ion-icon>
+      <ion-chip>
+        <ion-avatar>
+          <img
+            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+        </ion-avatar>
+        <ion-label>{{ lastPatient.pName }}</ion-label>
+        &nbsp;
+        <ion-label>{{ lastPatient.pLastN }}</ion-label>
+      </ion-chip>
       &nbsp;
-      <ion-label>{{ p.pLastN }}</ion-label>
-    </ion-chip>
-    &nbsp;
-    &nbsp;
-    <ion-label>{{ p.pTlfn }}</ion-label>
+      &nbsp;
+      <ion-label>{{ lastPatient.pTlfn }}</ion-label>
+      <ion-button fill="outline" slot="end">Editar</ion-button>
+    </ion-item>
+  </ng-template> -->
 
-    <ion-icon name="pencil" (click)="goEditItem(p.patientId)"></ion-icon>
-    <ion-icon name="close-circle" (click)="patientService.deletePatient(p.patientId)">
-    </ion-icon>
+  <!-- list of patients -->
+  <ion-item *ngFor="let p of patients | async">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-start">
+          <ion-chip>
+            <ion-avatar>
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+            </ion-avatar>
+            <ion-label>{{ p.pName }}</ion-label>
+            &nbsp;
+            <ion-label>{{ p.pLastN }}</ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col class="ion-text-end">
+          <ion-button shape="round" (click)="goEditItem(p.patientId)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-button>
+          <ion-button shape="round" (click)="patientService.deletePatient(p.patientId)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
   </ion-item>
-
-
 </ion-content>

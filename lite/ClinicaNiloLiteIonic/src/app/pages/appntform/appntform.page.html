@@ -14,11 +14,11 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">Fecha y hora</ion-label>
-      <ion-input placeholder="DD/MM/AAAA HH:mm" clearInput [(ngModel)]="appnt.date"></ion-input>
+      <ion-input placeholder="DD/MM/YYYY HH:mm" clearInput [(ngModel)]="appnt.date"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Paciente</ion-label>
-      <ion-select placeholder="Selecciona paciente" [(ngModel)]="appnt.pName">
+      <ion-select [(ngModel)]="appnt.pName">
         <ion-select-option *ngFor="let p of patients | async" [value]="p.pName + ' ' + p.pLastN">{{p.pName + ' ' + p.pLastN}}</ion-select-option>
       </ion-select>
     </ion-item>

@@ -6,29 +6,46 @@
     <ion-title>Citas</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-toolbar class="ion-padding">
+  <ion-fab vertical="top" horizontal="end">
+    <ion-fab-button size="small" (click)="addAppnt()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  &nbsp;
+  <ion-title size="large">Citas</ion-title>
+</ion-toolbar>
 <ion-content>
-  <ion-toolbar class="ion-padding">
-    <ion-fab horizontal="end">
-      <ion-fab-button (click)="addAppnt()">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-    &nbsp;
-    <ion-title>Citas</ion-title>
-  </ion-toolbar>
-    <ion-item *ngFor="let a of appnts | async ">
-      <ion-label>{{ a.date }}</ion-label>
-      &nbsp;
-      <ion-chip>
-        <ion-avatar>
-          <img
-            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
-        </ion-avatar>
-        <ion-label>{{ a.pName }}</ion-label><!-- | patients -->
-      </ion-chip>
-      &nbsp;
-      <ion-icon name="pencil" (click)="goEditItem(a.appntId)"></ion-icon>
-      <ion-icon name="close-circle" (click)="appntService.deleteAppnt(a.appntId)"></ion-icon>
-    </ion-item>
+  <ion-item *ngFor="let a of appnts | async">
+    <ion-grid class="ion-text-center">
+      <ion-row>
+        <ion-col>
+          <ion-row>
+            <ion-label>{{ a.date | date: 'dd/MM' }}</ion-label>
+          </ion-row>
+          &nbsp;
+          <ion-row>
+            <ion-label>{{ a.date | date: 'HH:mm' }}</ion-label>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-chip>
+            <ion-avatar>
+              <img
+                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjYzVkYmZmIiBkPSJNMCAwaDUxMnY1MTJIMHoiLz48cGF0aCBkPSJNMjU2IDMwNGM2MS42IDAgMTEyLTUwLjQgMTEyLTExMlMzMTcuNiA4MCAyNTYgODBzLTExMiA1MC40LTExMiAxMTIgNTAuNCAxMTIgMTEyIDExMnptMCA0MGMtNzQuMiAwLTIyNCAzNy44LTIyNCAxMTJ2NTZoNDQ4di01NmMwLTc0LjItMTQ5LjgtMTEyLTIyNC0xMTJ6IiBmaWxsPSIjODJhZWZmIi8+PC9zdmc+" />
+            </ion-avatar>
+            <ion-label>{{ a.pName }}</ion-label><!-- | patients -->
+          </ion-chip>
+        </ion-col>
+        <ion-col>
+          <ion-button shape="round" (click)="goEditItem(a.appntId)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-button>
+          <ion-button shape="round" (click)="appntService.deleteAppnt(a.appntId)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 </ion-content>
