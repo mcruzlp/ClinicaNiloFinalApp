@@ -1,24 +1,26 @@
-<p-panel header="Citas">
-
-  <ng-template pTemplate="icons">
-    <button pButton (click)="buttonAddAppnt()">
+<p-card header="Citas">
+  <ng-template pTemplate="header">
+    <button pButton icon="pi pi-add" class="p-button-rounded" (click)="buttonAddAppnt()">
       <span class="pi pi-plus"></span>
     </button>
   </ng-template>
 
-  <p-table [value]="(appnts | async)!" [paginator]="true" [rows]="7">
+  <p-table [value]="(appnts | async)!" [scrollable]="true" scrollHeight="600px">
     <ng-template pTemplate="header">
       <tr>
         <th pSortableColumn="date">
           Fecha <p-sortIcon field="date"></p-sortIcon>
         </th>
-        <th pSortableColumn="hour">
-          Hora <p-sortIcon field="hour"></p-sortIcon>
+        <th>
+          <!-- pSortableColumn="hour" -->
+          Hora
+          <!-- <p-sortIcon field="hour"></p-sortIcon> -->
         </th>
-        <th pSortableColumn="pName">
-          Paciente <p-sortIcon field="pName"></p-sortIcon>
+        <th>
+          <!-- pSortableColumn="pName" -->
+          Paciente
+          <!-- <p-sortIcon field="pName"></p-sortIcon> -->
         </th>
-        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -42,7 +44,7 @@
   </p-table>
 
   <!-- Form dialog-->
-  <p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw', height: '20vw' }">
+  <p-dialog [(visible)]="displayAppntForm" [style]="{ width: '40vw', height: '30vw' }">
     <ng-template pTemplate="header"> Cita </ng-template>
     <form [formGroup]="appntForm" (ngSubmit)="formSubmit()">
       <div class="card">
@@ -54,7 +56,7 @@
         <div class="field">
           <label for="pName">Paciente: </label>
           <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true" [showClear]="true"
-            placeholder="Select Item"></p-dropdown>
+            placeholder="Selecciona un paciente"></p-dropdown>
         </div>
         &nbsp;
       </div>
@@ -76,4 +78,4 @@
       <p-button (click)="displayConfirmDelete = false" label="No"> </p-button>
     </p-footer>
   </p-dialog>
-</p-panel>
+</p-card>

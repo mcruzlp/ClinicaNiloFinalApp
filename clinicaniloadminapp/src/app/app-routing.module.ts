@@ -42,12 +42,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
-  {
+  /* {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
+  }, */
   {
     path: 'welcome',
     component: WelcomeComponent,

@@ -1,8 +1,6 @@
 import { Appointment } from './../../model/appointment';
 import { AppntService } from './../../services/appnt.service';
 import { Component, OnInit } from '@angular/core';
-import { Doctor } from './../../model/doctor';
-import { DoctorService } from './../../services/doctor.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Patient } from './../../model/patient';
@@ -15,27 +13,22 @@ import { SelectItem } from 'primeng/api';
   styleUrls: ['./appnts.component.scss'],
 })
 export class AppntsComponent implements OnInit {
-  appntForm = new FormGroup({
-    appntId: new FormControl(),
-    date: new FormControl(''),
-    doctorId: new FormControl(),
-    patientId: new FormControl(''),
-  });
-
   appnts: Observable<Appointment[]>;
-
-  currentAppntId: string = '';
-  currentDoctorId: string = '';
   descriptionForDeletion = '';
   displayAppntForm = false;
   displayConfirmDelete = false;
-  idForDeletion = '';
   formButtonText = 'Añadir cita';
+  idForDeletion = '';
   patientsItem: SelectItem[] = [];
+
+  appntForm = new FormGroup({
+    appntId: new FormControl(),
+    date: new FormControl(''),
+    patientId: new FormControl(''),
+  });
 
   constructor(
     public appntService: AppntService,
-    public doctorService: DoctorService,
     public patientService: PatientService
   ) {
     this.appnts = this.appntService.getAppnts();
@@ -50,18 +43,17 @@ export class AppntsComponent implements OnInit {
 
   addAppnt() {
     this.formButtonText = 'Añadir cita';
-    this.appntForm.value.doctorId = this.currentDoctorId;
     this.appntService.addAppnt(this.appntForm.value);
     this.appntForm.reset();
   }
 
   editForm(id: string) {
-    this.currentAppntId = id;
     this.displayAppntForm = true;
     this.formButtonText = 'Actualizar cita';
     this.appntService.getAppnt(id).subscribe((data) => {
       this.appntForm.patchValue(data);
     });
+     this.appntForm.reset();
   }
 
   formSubmit() {

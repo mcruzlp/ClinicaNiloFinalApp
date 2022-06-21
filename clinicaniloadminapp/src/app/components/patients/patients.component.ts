@@ -10,23 +10,12 @@ import { PatientService } from './../../services/patient.service';
   styleUrls: ['./patients.component.scss'],
 })
 export class PatientsComponent implements OnInit {
-  formButtonText = 'Añadir paciente';
+  patients: Observable<Patient[]>;
   descriptionForDeletion = '';
   displayPatientForm = false;
   displayConfirmDelete = false;
+  formButtonText = 'Añadir paciente';
   idForDeletion = '';
-
-  patient: Patient = {
-    patientId: '',
-    pName: '',
-    pLastN: '',
-    pDNI: '',
-    pBDate: '',
-    pTlfn: '',
-    pAddr: '',
-    pEmail: '',
-    pFee: '',
-  };
 
   patientForm = new FormGroup({
     patientId: new FormControl(),
@@ -39,8 +28,6 @@ export class PatientsComponent implements OnInit {
     pAddr: new FormControl(''),
     pFee: new FormControl(''),
   });
-
-  patients: Observable<Patient[]>;
 
   constructor(public patientService: PatientService) {
     this.patients = this.patientService.getPatients();
@@ -85,5 +72,16 @@ export class PatientsComponent implements OnInit {
 
   updatePatient() {
     this.patientService.updatePatient(this.patientForm.value);
+  }
+
+  confirmDeletePatient(patient: Patient) {
+    this.idForDeletion = patient.patientId;
+    this.descriptionForDeletion = patient.pName;
+    this.displayConfirmDelete = true;
+  }
+
+  deletePatient() {
+    this.patientService.deletePatient(this.idForDeletion);
+    this.displayConfirmDelete = false;
   }
 }

@@ -25,7 +25,7 @@ export class TopbarComponent implements OnInit {
       icon: 'pi pi-fw pi-euro',
       routerLink: ['/bills'],
     }, */
-    {
+    /* {
       label: 'Configuración',
       icon: 'pi pi-fw pi-cog',
       items: [
@@ -44,6 +44,14 @@ export class TopbarComponent implements OnInit {
           icon: 'pi pi-power-off',
         },
       ],
+    }, */
+    {
+      label: 'Cerrar sesión',
+      routerLink: ['/welcome'],
+      command: () => {
+        this.authService.logout();
+      },
+      icon: 'pi pi-power-off',
     },
   ];
 

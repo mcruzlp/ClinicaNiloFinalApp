@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -47,7 +48,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { SelectItem } from 'primeng/api';
 import { SelectItemGroup } from 'primeng/api';
@@ -70,7 +70,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
 
     //pipes
     PatientsPipe,
-      DoctorsPipe,
+    DoctorsPipe,
   ],
   imports: [
     AppRoutingModule,
@@ -78,6 +78,7 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+
 
     provideAnalytics(() => getAnalytics()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
@@ -104,7 +105,6 @@ import { VirtualScrollerModule } from 'primeng/virtualscroller';
     TabViewModule,
     ToolbarModule,
     VirtualScrollerModule,
-
   ],
   providers: [ScreenTrackingService, UserTrackingService],
   bootstrap: [AppComponent],

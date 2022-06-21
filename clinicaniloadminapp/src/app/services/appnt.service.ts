@@ -7,6 +7,7 @@ import {
   addDoc,
   deleteDoc,
   doc,
+  getDoc,
   setDoc,
   docData,
   updateDoc,
@@ -18,7 +19,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AppntService {
-  currentAppntId: string = '';
   constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addAppnt(appnt: Appointment) {
@@ -30,7 +30,7 @@ export class AppntService {
       await updateDoc(docRef, {
         appntId: docRef.id,
       });
-      this.currentAppntId = docRef.id;
+      console.log('Document written with ID: ', docRef.id);
     } catch (e) {
       console.error('Error adding document: ', e);
     }
@@ -47,12 +47,6 @@ export class AppntService {
       idField: 'appntId',
     }) as Observable<Appointment>;
   }
-
-  /* getAppntsByDoctor(dName: string): Observable<Appointment[]> {
-    return collectionData(collection(this.firestore, `appointments`), {
-      idField: 'dName',
-    }) as Observable<Appointment[]>;
-  } */
 
   async updateAppnt(appnt: Appointment) {
     await setDoc(doc(this.firestore, `appointments/${appnt.appntId}`), appnt);

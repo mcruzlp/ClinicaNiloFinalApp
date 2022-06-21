@@ -19,10 +19,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PatientService {
-  constructor(
-    private firestore: Firestore,
-    public auth: AuthService
-  ) {}
+  constructor(private firestore: Firestore, public auth: AuthService) {}
 
   async addPatient(patient: Patient) {
     try {
@@ -51,13 +48,11 @@ export class PatientService {
     }) as Observable<Patient>;
   }
 
+  async updatePatient(patient: Patient) {
+    await setDoc(doc(this.firestore, `patients/${patient.patientId}`), patient);
+  }
+
   async deletePatient(id: string) {
     await deleteDoc(doc(this.firestore, `patients/${id}`));
-  }
-  async updatePatient(patient: Patient) {
-    await setDoc(
-      doc(this.firestore, `patients/${patient.patientId}`),
-      patient
-    );
   }
 }
