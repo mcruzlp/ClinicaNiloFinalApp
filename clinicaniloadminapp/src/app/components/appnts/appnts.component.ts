@@ -34,7 +34,10 @@ export class AppntsComponent implements OnInit {
     this.appnts = this.appntService.getAppnts();
     this.patientService.getPatients().subscribe((data) => {
       this.patientsItem = data.map((p) => {
-        return { label: p.pName + '' + p.pLastN, value: p.patientId };
+        return {
+          label: p.pName + ' ' + p.pLastN,
+          value: p.pName + ' ' + p.pLastN,
+        };
       });
     });
   }
