@@ -1,0 +1,17 @@
+th,
+td {
+  text-align: center;
+}
+
+p-button {
+  margin: 5px;
+}
+
+::ng-deep .p-panel-header {
+  background-color: #346686;
+}
+
+::ng-deep .p-panel-title {
+  color: white;
+  font-size: 2.6em;
+}
