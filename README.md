@@ -23,18 +23,21 @@ En [Figma](https://www.figma.com/file/KQ4nXWUY3vEfeJzxKcJPRY/ClinicaNilo?node-id
 
 También se puede ver el fucionamiento de la aplicación en el vídeo de [este enlace](https://youtu.be/Bck4VJVpJxA).
 
+### APK
+
+[APK]()
+
 ### Bibliografía
-Aprende Ionic con ejercicios
-Mis primeros pasitos con Angular
-Ionic
-Angular
-RxJS
-Python
-Tutorial de Flask en Youtube
-StackOverFlow para resolución de errores
-Markdownguide
-Figma
-CSS3
-W3School
-
-
+[Aprende Ionic con ejercicios]()
+[Mis primeros pasitos con Angular]
+[Ionic]()
+[Angular]()
+[PrimeNG](https://www.primefaces.org/primeng/setup)
+[RxJS]()
+[Python]()
+[Tutorial de Flask en Youtube]()
+[StackOverFlow para resolución de errores]()
+[Markdownguide]()
+[Figma]()
+[CSS3]()
+[W3School]()
