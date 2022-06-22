@@ -24,9 +24,10 @@ En [Figma](https://www.figma.com/file/KQ4nXWUY3vEfeJzxKcJPRY/ClinicaNilo?node-id
 
 También se puede ver el fucionamiento de la aplicación en el vídeo de [este enlace](https://youtu.be/Bck4VJVpJxA).
 
-### APK y [web]()
+### APK y landing page
 
-[APK](https://github.com/mcruzlp/ClinicaNiloFinalApp/blob/wFirebase/README/app-debug.apk)
+- [APK](https://github.com/mcruzlp/ClinicaNiloFinalApp/blob/wFirebase/README/app-debug.apk): Archivo ejecutable de la aplicación.
+- [Landing page]()
 
 ### Bibliografía
 - [Aprende Ionic con ejercicios](https://leanpub.com/aprendeionic/)
