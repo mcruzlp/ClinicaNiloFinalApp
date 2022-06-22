@@ -25,7 +25,7 @@ También se puede ver el fucionamiento de la aplicación en el vídeo de [este e
 
 ### APK
 
-[APK]()
+[APK](https://github.com/mcruzlp/ClinicaNiloFinalApp/blob/wFirebase/README/app-debug.apk)
 
 ### Bibliografía
 [Aprende Ionic con ejercicios]()
