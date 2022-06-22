@@ -27,7 +27,7 @@ También se puede ver el fucionamiento de la aplicación en el vídeo de [este e
 ### APK y landing page
 
 - [APK](https://github.com/mcruzlp/ClinicaNiloFinalApp/blob/wFirebase/README/app-debug.apk): Archivo ejecutable de la aplicación.
-- [Landing page]()
+- [Landing page](https://mcruzlp.github.io/ClinicaNiloFinalApp/)
 
 ### Bibliografía
 - [Aprende Ionic con ejercicios](https://leanpub.com/aprendeionic/)
