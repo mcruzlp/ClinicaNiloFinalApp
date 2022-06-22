@@ -28,16 +28,15 @@ También se puede ver el fucionamiento de la aplicación en el vídeo de [este e
 [APK](https://github.com/mcruzlp/ClinicaNiloFinalApp/blob/wFirebase/README/app-debug.apk)
 
 ### Bibliografía
-[Aprende Ionic con ejercicios]()
-[Mis primeros pasitos con Angular]
-[Ionic]()
-[Angular]()
+[Aprende Ionic con ejercicios](https://leanpub.com/aprendeionic/)
+[Mis primeros pasitos con Angular](https://leanpub.com/mis-primeros-pasitos-con-angular)
+[Ionic](https://ionicframework.com/docs/components)
+[Angular](https://angular.io/)
 [PrimeNG](https://www.primefaces.org/primeng/setup)
-[RxJS]()
-[Python]()
-[Tutorial de Flask en Youtube]()
-[StackOverFlow para resolución de errores]()
-[Markdownguide]()
-[Figma]()
-[CSS3]()
-[W3School]()
+[RxJS](https://rxjs.dev/)
+[Python](https://www.python.org/doc/)
+[Tutorial de Angular & Flask en Youtube](https://www.youtube.com/watch?v=dXiA5woCqnQ)
+[StackOverFlow para resolución de errores](https://stackoverflow.com/)
+[Markdownguide](https://www.markdownguide.org/)
+CSS3 Avanzado: Apuntes de clase. Moisés Martínez.
+[W3School](https://www.w3schools.com/)
