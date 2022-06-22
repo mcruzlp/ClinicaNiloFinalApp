@@ -30,7 +30,7 @@
       <tr>
         <td>{{ appnt.date | date : 'dd/MM' }}</td>
         <td>{{ appnt.date | date : 'HH:mm' }}</td>
-        <td>{{ appnt.patientId | patients | async }}</td>
+        <td>{{ appnt.pName}}</td>
         <td>
           <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded"
             (click)="editForm(appnt.appntId)"></button>
@@ -55,7 +55,7 @@
         &nbsp;
         <div class="field">
           <label for="pName">Paciente: </label>
-          <p-dropdown [options]="patientsItem" formControlName="patientId" [virtualScroll]="true" [showClear]="true"
+          <p-dropdown [options]="patientsItem" formControlName="pName + ' ' + pLastName" [virtualScroll]="true" [showClear]="true"
             placeholder="Selecciona un paciente"></p-dropdown>
         </div>
         &nbsp;
@@ -71,7 +71,7 @@
   <!-- Delete confirmation dialog -->
   <p-dialog [(visible)]="displayConfirmDelete">
     <div class="card">
-      Vas a borrar la cita <b>{{ descriptionForDeletion | patients | async }}</b>, ¿quieres continuar?
+      Vas a borrar la cita <b>{{ descriptionForDeletion }}</b>, ¿quieres continuar?
     </div>
     <p-footer>
       <p-button (click)="deleteAppnt()" label="Sí"> </p-button>
@@ -79,3 +79,4 @@
     </p-footer>
   </p-dialog>
 </p-card>
+

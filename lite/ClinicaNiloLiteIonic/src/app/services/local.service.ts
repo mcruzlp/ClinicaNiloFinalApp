@@ -14,8 +14,8 @@ export class LocalService {
   rememberData = false;
 
   constructor() {
-    this.getLocalUserFromStorage().then((data) => (this.user = data));
-    this.getStateFromStorage().then((data) => (this.rememberData = data));
+    /* this.getLocalUserFromStorage().then((data) => (this.user = data));
+    this.getStateFromStorage().then((data) => (this.rememberData = data)); */
   }
 
   public getLocalUser(): LocalUser {

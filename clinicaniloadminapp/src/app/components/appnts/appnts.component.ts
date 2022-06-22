@@ -24,7 +24,7 @@ export class AppntsComponent implements OnInit {
   appntForm = new FormGroup({
     appntId: new FormControl(),
     date: new FormControl(''),
-    patientId: new FormControl(''),
+    pName: new FormControl(''),
   });
 
   constructor(
@@ -34,7 +34,7 @@ export class AppntsComponent implements OnInit {
     this.appnts = this.appntService.getAppnts();
     this.patientService.getPatients().subscribe((data) => {
       this.patientsItem = data.map((p) => {
-        return { label: p.pName, value: p.patientId };
+        return { label: p.pName + '' + p.pLastN, value: p.patientId };
       });
     });
   }
@@ -53,7 +53,7 @@ export class AppntsComponent implements OnInit {
     this.appntService.getAppnt(id).subscribe((data) => {
       this.appntForm.patchValue(data);
     });
-     this.appntForm.reset();
+    this.appntForm.reset();
   }
 
   formSubmit() {
@@ -82,7 +82,7 @@ export class AppntsComponent implements OnInit {
 
   confirmDeleteAppnt(appnt: Appointment) {
     this.idForDeletion = appnt.appntId;
-    this.descriptionForDeletion = appnt.patientId;
+    this.descriptionForDeletion = appnt.pName;
     this.displayConfirmDelete = true;
   }
 

@@ -116,7 +116,7 @@
   <!-- Delete confirmation dialog -->
   <p-dialog [(visible)]="displayConfirmDelete">
     <div class="card">
-      Vas a borrar a <b>{{ descriptionForDeletion | patients | async }}</b>, ¿quieres continuar?
+      Vas a borrar a <b>{{ descriptionForDeletion }}</b>, ¿quieres continuar?
     </div>
     <p-footer>
       <p-button (click)="deletePatient()" label="Sí"> </p-button>

@@ -31,9 +31,9 @@ export class LoginPage implements OnInit {
       this.password
     );
     if (connectionSuccess) {
-      if (this.remember) {
+      /* if (this.remember) {
         this.localService.saveLocalData(this.remember, this.email);
-      }
+      } */
       this.router.navigateByUrl('/appnts');
     } else {
       this.presentAlert();

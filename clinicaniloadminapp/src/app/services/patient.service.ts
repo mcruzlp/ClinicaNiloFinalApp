@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Patient } from './../model/patient';
 import { AuthService } from './auth.service';
 import {
@@ -46,6 +47,12 @@ export class PatientService {
     return docData(doc(this.firestore, `patients/${id}`), {
       idField: 'patientId',
     }) as Observable<Patient>;
+  }
+
+  getPatientName(id: string): Observable<string> {
+    return docData(doc(this.firestore, `patients/${id}`), {
+      idField: 'patientId',
+    }).pipe(map((data) => data['pName'])) as Observable<string>;
   }
 
   async updatePatient(patient: Patient) {

@@ -9,30 +9,7 @@ import { PatientService } from './../services/patient.service';
 export class PatientsPipe implements PipeTransform {
   constructor(public patientService: PatientService) {}
 
-  async transform(patientId: string): Promise<string> {
-    let patient: Patient = {
-      patientId: '',
-      pName: '',
-      pLastN: '',
-      pDNI: '',
-      pBDate: '',
-      pTlfn: '',
-      pAddr: '',
-      pEmail: '',
-    };
-    let patientName: string = '';
-    let patientLastName: string = '';
-
-    patient = await firstValueFrom(this.patientService.getPatient(patientId));
-
-    if (patient == null) {
-      patientName = '';
-      patientLastName = '';
-    } else {
-      patientName = patient.pName;
-      patientLastName = patient.pLastN;
-    }
-
-    return patientName + ' ' + patientLastName;
+  transform(patientId: string): Observable<string> {
+    return this.patientService.getPatientName(patientId);
   }
 }
