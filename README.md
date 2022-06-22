@@ -1,7 +1,7 @@
 <img width="240px" src="./README/logo.png">
 
 # Clinica Nilo FinalApp
-<img width="240px" src="./README/ionic.png"> <img width="240px" src="./README/angular.png"> <img width="240px" src="./README/python-logo.png">
+<img width="240px" src="./README/ionic.png"> <img width="120px" src="./README/angular.png"> <img width="240px" src="./README/python-logo.png">
 
 ## Descripción
 [Clínica Nilo](https://www.centrodepsicologianilo.com/) es una empresa malagueña de referencia en el sector de la atención psicológica, pionera en el campo de los Trastornos del Comportamiento Alimentario, y cuyos profesionales se mantienen siempre a la vanguardia, y no sólo en su formación, sino que se adaptan a los cambios sociales para mantenerse cerca del paciente, y hacer más fácil el camino hacia su bienestar.
