@@ -1,12 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clinica Nilo Web</title>
-</head>
-<body>
-  
-</body>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- enlace a libreria jquery para smooth scroll-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- enlace a javascripts (top navbar responsive, smooth scroll) -->
+    <!-- <script src="js/functions.js"></script> -->
+    <link rel="stylesheet" href="landing/main.css">
+    <title>Clinica Nilo Web</title>
+  </head>
+
+  <body>
+    <!-- flecha para volver arriba -->
+    <a href="#home"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+
+    <nav id="home" class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="topnav" id="myTopnav">
+
+        <a class="navbar-brand" href="#home">
+          <img src="/landing/images/logonilo.png" alt="logo-nilo">
+        </a>
+        <a href="#about">Clínica Nilo</a>
+        <a href="#Mobile">Aplicación móvil</a>
+        <a href="#desk">Aplicación para escritorio</a>
+        <a href="#how">Tecnologías de desarrollo</a>
+        <a href="#meditation">Meditación</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+        <!--Botón hamburguesa-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <!-------------------- ABOUT US ---------------------------->
+    <section id="about">
+      hola
+    </section>
+    <!-------------------- MOBILEAPP --------------------------->
+    <section id="Mobile">
+      caracola
+    </section>
+    <!-------------------- DESKAPP ----------------------------->
+    <section id="desk">
+      farola
+    </section>
+    <!-------------------- TECHNOLOGIES ------------------------>
+    <section id="how">
+      <div class="row">
+        <div id="frameworks" class="col-lg-3 col-md-6 container">
+          <img src="" alt="Ionic & Angular" class="image">
+          <div class="overlay overlay1">
+            <div class="text" role="button">Ionic & Angular</div>
+          </div>
+        </div>
+        <div id="language" class="col-lg-3 col-md-6 container">
+          <img src="" alt="TypeScript" class="image">
+          <div class="overlay overlay2">
+            <div class="text" role="button">TypeScript
+            </div>
+          </div>
+        </div>
+        <div id="other" class="col-lg-3 col-md-6 container">
+          <img src="" alt="Python" class="image">
+          <div class="overlay overlay3">
+            <div role="button" class="text">Python
+            </div>
+          </div>
+        </div>
+        <div id="database" class="col-lg-3 col-md-6 container">
+          <img src="" alt="Firebase" class="image">
+          <div class="overlay overlay3">
+            <div role="button" class="text">Firebase</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-------------------- MULTIMEDIA -------------------------->
+    <section id="MULTIMEDIA">
+      <div>
+        <div id="control-panel">
+          <label>Canvas: </label>
+        </div>
+        <canvas id="c"></canvas>
+      </div>
+      <div class="col">
+        <!-- dos vídeos de meditación -->
+      </div>
+    </section>
+    <hr>
+    <!-------------------- FOOTER ---------------------------->
+    <footer>
+      <i></i>
+    </footer>
+  </body>
+
 </html>
