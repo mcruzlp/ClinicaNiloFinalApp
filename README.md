@@ -7,16 +7,17 @@
 [Clínica Nilo](https://www.centrodepsicologianilo.com/) es una empresa malagueña de referencia en el sector de la atención psicológica, pionera en el campo de los Trastornos del Comportamiento Alimentario, y cuyos profesionales se mantienen siempre a la vanguardia, y no sólo en su formación, sino que se adaptan a los cambios sociales para mantenerse cerca del paciente, y hacer más fácil el camino hacia su bienestar.
 
 Es por eso que nace esta aplicación, que facilitará la gestión de citas entre especialista y paciente, ayudará a mantener una comunicación fluida y a realizar un seguimiento centralizado.
+Se trata de un software de gestión empresarial específico para una clínica, en la que se podrán gestionar tanto el listado de pacientes, como su historial, citas y facturas.
+
+Partirá de la aplicación presentada en el primer trimestre, e incluirá, entre otras mejoras, el uso de Firebase para el almacenamiento de datos, el registro de usuarios, etc.
 
 ### Objetivos
 Con este proyecto pondré en práctica los conocimientos que he adquirido durante mi formación en el CFGS en Desarrollo de Aplicaciones Multiplataforma, impartido en el IES Campanillas.
 
 Los requisitos académicos que debe cumplir se indican en [la Wiki de este repositorio](https://github.com/IESCampanillas/proyectos-dam-2022/wiki).
 
-### Temática
-Se trata de un software de gestión empresarial específico para una clínica de salud mental, en la que se podrán gestionar tanto el listado de pacientes, como su historial, citas y facturas.
-
-Partirá de la aplicación presentada en el primer trimestre, e incluirá, entre otras mejoras, el uso de Firebase para el almacenamiento de datos, el registro de usuarios, etc.
+### Detalles técnicos
+La aplicación móvil ha sido desarrollada con **Ionic**, y la versión web con **Angular**, en ambos casos con el lenguaje **TypeScript**. Para el almacenamiento de datos y la autenticación de usuarios se ha elegido **Firebase** por haber sido la herramienta trabajada en clase. Al ser una base de datos **no relacional**, todas las conexiones entre colecciones de datos deben realizarse en la lógica. En el caso de esta aplicación, además, no se almacena ningún dato de forma temporal, lo que ha supuesto una mayor complejidad para su correcto funcionamiento.
 
 ### Borrador de la aplicación
 
