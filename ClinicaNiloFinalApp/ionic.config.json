@@ -1,0 +1,7 @@
+{
+  "name": "ClinicaNiloFinalApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
