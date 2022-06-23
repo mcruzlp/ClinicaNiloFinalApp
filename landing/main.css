@@ -1,0 +1,205 @@
+/************ BASIC LAYOUT ***********/
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--fog);
+	font-family: RobotoS;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+}
+
+a {
+	text-decoration: none;
+	color: var(--ocean);
+	font-weight: bold;
+}
+
+a:hover {
+	color: var(--sky);
+}
+
+.btn {
+	background-color: var(--white);
+	color: var(--ocean);
+}
+
+.btn:hover {
+  background-color: var(--ocean);
+	color: var(--sky);
+}
+
+hr {
+	background-color: var(--ocean);
+}
+
+/************ COLORS **************/
+
+:root {
+  --white: #FFFFFF;
+  --sky: #E1F2FD;
+  --fog: #AECCE0;
+  --ocean: #346686;
+  --black: #000000;
+
+  --degradado1: #FFFFFF;
+  --degradado2: #E1F2FD;
+  --degradado3: #AECCE0;
+  --degradado4: #346686;
+}
+
+/************ FONTS *************/
+
+@font-face {
+  font-family: RobotoR;
+  src: url("/landing/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: RobotoS;
+  src: url("/landing/fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf");
+}
+
+
+/************ RESPONSIVE *************/
+
+@media (max-width: 640px) {
+  .flex-main {
+    flex-direction: column;
+  }
+
+  p {
+    visibility: hidden;
+  }
+
+  .flex-main__item:hover {
+    flex-grow: 10;
+  }
+
+  .flex-main__item:hover > p {
+    visibility: visible;
+  }
+}
+
+@media (min-width: 640px) {
+  .flex-main__item:hover {
+    flex-grow: 2;
+  }
+}
+
+/******************* NAV BAR ***********************/
+.navbar {
+	background-color: var(--fog);
+	font-family: RobotoR;
+	font-size: 1.25em;
+}
+
+.navbar-brand {
+	padding: 5px;
+}
+
+.nav-item {
+	padding: 5px;
+}
+
+.form-inline {
+	position: right;
+}
+
+@media screen and (min-width: 992px) {
+	.navbar-toggler-icon {
+		display: none;
+	}
+}
+
+/********************** ABOUT US *****************************/
+
+
+
+/********************** MOBILE APP **************************/
+
+#mobile {
+	background-color: var(--ocean);
+	color: white;
+}
+
+/******************** DESK APP ************************/
+#desk {
+	background-color: var(--fog);
+}
+.card {
+	box-shadow: 3px 3px 8px white;
+	background-color: var(--fog);
+	color: var(--ocean);
+}
+
+/********************* TECHNOLOGIES ************************/
+#how {
+	color: white;
+}
+
+#how img {
+	max-width: 100%;
+	height: auto;
+}
+
+#how .overlay {
+	position: absolute;
+	bottom: 0;
+	left: 100%;
+	right: 0;
+	background-color: var(--fog);
+	overflow: hidden;
+	width: 0;
+	height: 100%;
+	transition: 0.5s ease;
+}
+
+#how .container:hover .overlay {
+	width: 100%;
+	left: 0;
+}
+
+#how .text {
+	color: --var(ocean);
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+}
+
+#frameworks {
+	overflow: scroll;
+}
+
+/*********************** MEDITATION ***************************/
+
+
+
+/*********************** FOOTER ***************************/
+hr {
+	margin-top: 0%;
+}
+
+footer {
+	font-family: titles;
+	font-size: 1em;
+	color: var(--ocean);
+	background-color: var(--sky);
+}
+
+footer .fa {
+	padding: 10px;
+	font-size: 30px;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	margin: 5px 5px;
+}
