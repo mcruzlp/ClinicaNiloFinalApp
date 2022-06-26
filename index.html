@@ -5,99 +5,182 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- enlace a libreria jquery para smooth scroll-->
+    <!-- google fonts icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- smooth scroll-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- enlace a javascripts (top navbar responsive, smooth scroll) -->
-    <script src="js/functions.js"></script>
-    <script src="js/canvas.js"></script>
+    <!-- canvas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- javascript -->
+    <script src="landing/js/functions.js"></script>
+    <!-- style -->
     <link rel="stylesheet" href="landing/main.css">
     <title>Clinica Nilo Web</title>
   </head>
 
   <body>
-    <!-- flecha para volver arriba -->
-    <a href="#home"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-
     <nav id="home" class="navbar navbar-expand-lg navbar-dark sticky-top">
-      <div class="topnav" id="myTopnav">
-        <a class="navbar-brand" href="#home">
-          <img src="/landing/images/logo-nilo.png" alt="logo-nilo">
+      <div class="container" id="myTopnav">
+        <a href="#home">
+          <img src="/landing/images/logo-nilo.png" alt="logo-nilo" width="auto" height="50">
         </a>
         <a href="#about">Clínica Nilo</a>
         <a href="#Mobile">Aplicación móvil</a>
         <a href="#desk">Aplicación para escritorio</a>
         <a href="#how">Tecnologías de desarrollo</a>
         <a href="#meditation">Meditación</a>
-        <!-- <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a> -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <span class="material-icons-outlined">
+            menu
+          </span>
+        </a>
         <!--Botón hamburguesa-->
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
-        </button> -->
+        </button>
       </div>
     </nav>
     <!-------------------- ABOUT US ---------------------------->
     <section id="about">
-      
+      <p>Clínica Nilo</p>
+      <p>Cuidamos tu salud emocional</p>
     </section>
     <!-------------------- MOBILEAPP --------------------------->
-    <section id="Mobile">
+    <section id="mobile">
+      <div class="container">
+        <div>
+          <img src="landing/images/ionic-transparent.png" alt="">
+        </div>
+        <div class="text">
+          Aplicación móvil diseñada para agilizar el día a día del especialista, con opción a añadir pacientes y citas
+          con
+          una vista reducida.
+        </div>
+      </div>
     </section>
     <!-------------------- DESKAPP ----------------------------->
     <section id="desk">
-      
+      <div class="container">
+        <div class="text">
+          Aplicación de escritorio diseñada para gestionar al completo las fichas y el historial de los pacientes, las
+          citas, y la facturación mensual.
+        </div>
+        <div>
+          <img src="landing/images/angular.png" alt="">
+        </div>
+      </div>
     </section>
     <!-------------------- TECHNOLOGIES ------------------------>
     <section id="how">
-      <div class="row">
-        <div id="frameworks" class="col-lg-3 col-md-6 container">
-          <img src="" alt="Ionic & Angular" class="image">
-          <div class="overlay overlay1">
-            <div class="text" role="button">Ionic & Angular</div>
+      <div class="container">
+        <div id="frameworks" class="container-tech">
+          Ionic & Angular
+          <div class="overlay container">
+            <img src="landing/images/ionic-transparent.png" alt="Ionic">
+            <div class="text">
+              Ionic es un kit de desarrollo frontend para aplicaciones híbridas que se integra en frameworks como
+              Ángular. Con ellos se pueden desarrollar apliaciones escalables mediante la creación de componentes.
+            </div>
+            <img src="landing/images/angular.png" alt="Angular">
           </div>
         </div>
-        <div id="language" class="col-lg-3 col-md-6 container">
-          <img src="" alt="TypeScript" class="image">
-          <div class="overlay overlay2">
-            <div class="text" role="button">TypeScript
+        <div id="language" class="container-tech">
+          TypeScript
+          <div class="overlay container">
+            <img src="landing/images/Typescript_logo_2020.svg.png" alt="TypeScript" class="image">
+            <div class="text">
+              es un lenguaje de programación basado en JS que añade características como el tipado o modulado del
+              código, entre otras mejoras.
             </div>
           </div>
         </div>
-        <div id="other" class="col-lg-3 col-md-6 container">
-          <img src="" alt="Python" class="image">
-          <div class="overlay overlay3">
-            <div role="button" class="text">Python
+        <div id="database" class="container-tech">
+          Firebase
+          <div class="overlay container">
+            <img src="landing/images/firebase.png" alt="Firebase">
+            <div class="text">
+              es la plataforma que ofrece google para el desarrollo de aplicaciones móviles.
             </div>
           </div>
         </div>
-        <div id="database" class="col-lg-3 col-md-6 container">
-          <img src="" alt="Firebase" class="image">
-          <div class="overlay overlay3">
-            <div role="button" class="text">Firebase</div>
+        <div id="python" class="container-tech">
+          Python
+          <div class="overlay container">
+            <img src="landing/images/python-logo.png" alt="Python">
+            <div class="text">
+              es un lenguaje de programación utilizado especialmente para el tratamiento de datos.
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-------------------- MULTIMEDIA -------------------------->
-    <section id="MULTIMEDIA">
-      <div>
-        <div id="control-panel">
-          <label>Canvas: </label>
-        </div>
-        <canvas id="c"></canvas>
-      </div>
-      <div class="col">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/0VuWz9MirkI" title="YouTube video player"
-          frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    <!-------------------- MEDITATION -------------------------->
+    <section id="meditation">
+      <div class="container">
+        <canvas id="myChart"></canvas>
+        <iframe src="https://www.youtube.com/embed/0VuWz9MirkI" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
       </div>
     </section>
-    <hr>
     <!-------------------- FOOTER ---------------------------->
     <footer>
-      <i></i>
+      <div class="container">
+        <div class="info">
+          <p>Avda Andalucía 22, 1C</p>
+          <p>952 28 64 94</p>
+          <p>centrodepsicologianilo.com</p>
+        </div>
+        <div class="info">
+          <span class="material-icons">
+            copyright
+          </span> Clínica Nilo 2022
+        </div>
+        <div class="info">
+          <p>Contacto:</p>
+        </div>
+      </div>
     </footer>
+    <!-- canvas -->
+    <script>
+      const labels = [
+        'Julio',
+        'Agosto',
+        'Septiembre',
+        'Octubre',
+        'Noviembre',
+        'Diciembre',
+        'Enero',
+        'Febrero',
+        'Marzo',
+        'Abril',
+        'Mayo',
+        'Junio',
+      ];
+
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Pacientes',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [30, 35, 40, 50, 40, 60, 75, 58, 50, 45, 38, 25],
+        }]
+      };
+
+      const config = {
+        type: 'line',
+        data: data,
+        options: {}
+      };
+    </script>
+    <!-- canvas -->
+    <script>
+      const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+      );
+    </script>
   </body>
 
 </html>

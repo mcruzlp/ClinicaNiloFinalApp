@@ -1,54 +1,90 @@
 /************ BASIC LAYOUT ***********/
+:root {
+  --white: #ffffff;
+  --sky: #e1f2fd;
+  --fog: #aecce0;
+  --cloud: #8ecaef;
+  --water: #3aa3ca;
+  --ocean: #346686;
+  --grey: #636464;
+  --black: #000000;
+
+  --degradado1: #ffffff;
+  --degradado2: #e1f2fd;
+  --degradado3: #aecce0;
+  --degradado4: #346686;
+}
+
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  overflow-x: auto;
 }
 
 body {
   background-color: var(--fog);
-	font-family: RobotoS;
+  font-family: RobotoS;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   color: var(--white);
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
 a {
-	text-decoration: none;
-	color: var(--ocean);
-	font-weight: bold;
+  text-decoration: none;
+  color: var(--ocean);
+  font-weight: bold;
 }
 
 a:hover {
-	color: var(--sky);
+  color: var(--sky);
 }
 
-.btn {
-	background-color: var(--white);
-	color: var(--ocean);
+img {
+  margin: 20px;
+  max-width: 100%;
 }
 
-.btn:hover {
-  background-color: var(--ocean);
-	color: var(--sky);
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
 }
 
-hr {
-	background-color: var(--ocean);
-}
-
-/************ COLORS **************/
-
-:root {
-  --white: #FFFFFF;
-  --sky: #E1F2FD;
-  --fog: #AECCE0;
-  --ocean: #346686;
-  --black: #000000;
-
-  --degradado1: #FFFFFF;
-  --degradado2: #E1F2FD;
-  --degradado3: #AECCE0;
-  --degradado4: #346686;
+.material-icons .ocean {
+  color: var(--water);
 }
 
 /************ FONTS *************/
@@ -63,143 +99,178 @@ hr {
   src: url("/landing/fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf");
 }
 
-
 /************ RESPONSIVE *************/
 
-@media (max-width: 640px) {
-  .flex-main {
-    flex-direction: column;
-  }
-
-  p {
-    visibility: hidden;
-  }
-
-  .flex-main__item:hover {
-    flex-grow: 10;
-  }
-
-  .flex-main__item:hover > p {
-    visibility: visible;
-  }
-}
-
-@media (min-width: 640px) {
-  .flex-main__item:hover {
-    flex-grow: 2;
-  }
-}
-
-/******************* NAV BAR ***********************/
-.navbar {
-	background-color: var(--fog);
-	font-family: RobotoR;
-	font-size: 1.25em;
-}
-
-.navbar-brand {
-	padding: 5px;
-}
-
-.nav-item {
-	padding: 5px;
-}
-
-.form-inline {
-	position: right;
-}
-
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1000px) {
 	.navbar-toggler-icon {
 		display: none;
 	}
 }
 
+/* @media screen and (max-width: 640px) {
+  #how {
+    flex-direction: column;
+  }
+  .tech {
+    transition: height 10s linear;
+  }
+  .tech :hover {
+    height: 100vw;
+  }
+}
+
+@media screen {
+  .tech {
+    transition: width 10s linear;
+  }
+  .tech :hover {
+    width: 100vw;
+  }
+} */
+
+/******************* NAV BAR ***********************/
+.navbar {
+  background-color: var(--sky);
+  font-family: RobotoR;
+  font-size: 1.25em;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar a {
+  color: var(--water);
+  padding: 20px;
+}
+
+.navbar a:hover {
+  color: var(--grey);
+}
+
+.nav-item {
+  padding: 5px;
+}
+
 /********************** ABOUT US *****************************/
 
-
+#about {
+  background-color: var(--ocean);
+  background-image: url(/landing/images/python-logo.png);
+  background-size: cover;
+  color: var(--sky);
+  text-align: center;
+  align-items: center;
+}
 
 /********************** MOBILE APP **************************/
 
 #mobile {
-	background-color: var(--ocean);
-	color: white;
+  background-color: var(--sky);
+  color: var(--ocean);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#mobile .text {
+  display: flex;
+  padding: 5%;
 }
 
 /******************** DESK APP ************************/
 #desk {
-	background-color: var(--fog);
+  background-color: var(--ocean);
+  color: var(--sky);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.card {
-	box-shadow: 3px 3px 8px white;
-	background-color: var(--fog);
-	color: var(--ocean);
+
+#desk .text {
+  display: flex;
+  padding: 5%;
 }
 
 /********************* TECHNOLOGIES ************************/
 #how {
-	color: white;
+  color: var(--ocean);
+  display: flex;
+  flex-direction: row;
+  grid-column: span 12;
+  justify-content: center;
 }
 
-#how img {
-	max-width: 100%;
-	height: auto;
-}
-
-#how .overlay {
-	position: absolute;
-	bottom: 0;
-	left: 100%;
-	right: 0;
-	background-color: var(--fog);
-	overflow: hidden;
-	width: 0;
-	height: 100%;
-	transition: 0.5s ease;
-}
-
-#how .container:hover .overlay {
-	width: 100%;
-	left: 0;
-}
-
-#how .text {
-	color: --var(ocean);
-	font-size: 20px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	white-space: nowrap;
+.container-tech {
+  display: flex;
+  flex-grow: 1;
+  height: 300px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #frameworks {
-	overflow: scroll;
+  background-color: var(--cloud);
+}
+
+#language {
+  background-color: var(--water);
+}
+
+#database {
+  background-color: var(--cloud);
+}
+
+#python {
+  background-color: var(--water);
+}
+
+.overlay {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+}
+
+.container-tech:hover .overlay {
+  width: 100%;
+  left: 0;
+  color: var(--white);
+}
+
+.overlay img {
+  width: 5vh;
+  height: auto;
+}
+
+#how .text .overlay {
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 /*********************** MEDITATION ***************************/
-
-
+#meditation {
+  display: flex;
+  flex-direction: row;
+}
 
 /*********************** FOOTER ***************************/
-hr {
-	margin-top: 0%;
-}
-
 footer {
-	font-family: titles;
-	font-size: 1em;
-	color: var(--ocean);
-	background-color: var(--sky);
+  bottom: 0;
+  width: 100%;
+  font-family: RobotoR;
+  background-color: var(--ocean);
+  color: var(--sky);
+  padding: 20px;
 }
 
-footer .fa {
-	padding: 10px;
-	font-size: 30px;
-	width: 50px;
-	text-align: center;
-	text-decoration: none;
-	margin: 5px 5px;
+.info {
+  display: block;
 }

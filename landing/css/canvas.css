@@ -7,11 +7,6 @@ body {
 canvas {
   display: block;
   height: 100%;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 0;
   width: 100%
 }
 
@@ -20,9 +15,6 @@ canvas {
   border: 1px solid #333;
   left: 20px;
   padding: 10px 15px;
-  position: absolute;
-  top: 20px;
-  z-index: 2;
 }
 
 p {
