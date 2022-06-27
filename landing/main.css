@@ -1,4 +1,10 @@
 /************ BASIC LAYOUT ***********/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --white: #ffffff;
   --sky: #e1f2fd;
@@ -17,7 +23,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: auto;
 }
 
 body {
@@ -25,8 +30,17 @@ body {
   font-family: RobotoS;
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 5;
   color: var(--white);
+}
+
+.parallax {
+  background-image: url("/landing/images/sl11.jpg");
+  min-height: max-content;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -55,7 +69,6 @@ a:hover {
 
 img {
   margin: 20px;
-  max-width: 100%;
 }
 
 .material-icons {
@@ -99,35 +112,6 @@ img {
   src: url("/landing/fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf");
 }
 
-/************ RESPONSIVE *************/
-
-@media screen and (min-width: 1000px) {
-	.navbar-toggler-icon {
-		display: none;
-	}
-}
-
-/* @media screen and (max-width: 640px) {
-  #how {
-    flex-direction: column;
-  }
-  .tech {
-    transition: height 10s linear;
-  }
-  .tech :hover {
-    height: 100vw;
-  }
-}
-
-@media screen {
-  .tech {
-    transition: width 10s linear;
-  }
-  .tech :hover {
-    width: 100vw;
-  }
-} */
-
 /******************* NAV BAR ***********************/
 .navbar {
   background-color: var(--sky);
@@ -146,19 +130,18 @@ img {
   color: var(--grey);
 }
 
-.nav-item {
-  padding: 5px;
+.nav-buttons {
+  display: flex;
+  flex-direction: row;
 }
 
 /********************** ABOUT US *****************************/
 
 #about {
-  background-color: var(--ocean);
-  background-image: url(/landing/images/python-logo.png);
-  background-size: cover;
-  color: var(--sky);
+  color: var(--ocean);
   text-align: center;
   align-items: center;
+  padding: 200px;
 }
 
 /********************** MOBILE APP **************************/
@@ -192,20 +175,10 @@ img {
 
 /********************* TECHNOLOGIES ************************/
 #how {
-  color: var(--ocean);
+  color: var(--sky);
   display: flex;
   flex-direction: row;
-  grid-column: span 12;
   justify-content: center;
-}
-
-.container-tech {
-  display: flex;
-  flex-grow: 1;
-  height: 300px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
 }
 
 #frameworks {
@@ -224,6 +197,16 @@ img {
   background-color: var(--water);
 }
 
+.container-tech {
+  display: flex;
+  flex-grow: 1;
+  height: 300px;
+  padding: 5px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .overlay {
   display: flex;
   flex-direction: row;
@@ -234,7 +217,7 @@ img {
   overflow: hidden;
   width: 0;
   height: 100%;
-  transition: 0.5s ease;
+  transition: 1s ease;
 }
 
 .container-tech:hover .overlay {
@@ -248,17 +231,21 @@ img {
   height: auto;
 }
 
-#how .text .overlay {
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
+/*********************** MULTIMEDIA ***************************/
+#multimedia {
+  display: block; 
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
-/*********************** MEDITATION ***************************/
-#meditation {
-  display: flex;
-  flex-direction: row;
+.media {
+  width: min-content;
+  height: min-content;
+}
+
+canvas {
+  background-color: var(--water);
 }
 
 /*********************** FOOTER ***************************/
@@ -273,4 +260,38 @@ footer {
 
 .info {
   display: block;
+}
+
+/*********************** RESPONSIVE ********************/
+
+@media screen and (max-width: 640px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container-tech {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .container-tech :first-of-type {
+    position: absolute;
+  }
+
+  .overlay {
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+  }
+
+  .container-tech:hover :first-of-type {
+    position: relative;
+  }
+
+  footer {
+    margin-top: 20px;
+  }
+  .info {
+    padding: 20px;
+  }
 }

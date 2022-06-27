@@ -18,26 +18,17 @@
     <title>Clinica Nilo Web</title>
   </head>
 
-  <body>
-    <nav id="home" class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <body class="parallax">
+    <nav id="home" class="navbar">
       <div class="container" id="myTopnav">
         <a href="#home">
           <img src="/landing/images/logo-nilo.png" alt="logo-nilo" width="auto" height="50">
         </a>
-        <a href="#about">Clínica Nilo</a>
-        <a href="#Mobile">Aplicación móvil</a>
-        <a href="#desk">Aplicación para escritorio</a>
-        <a href="#how">Tecnologías de desarrollo</a>
-        <a href="#meditation">Meditación</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <span class="material-icons-outlined">
-            menu
-          </span>
-        </a>
-        <!--Botón hamburguesa-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="nav-buttons" href="#about">Clínica Nilo</a>
+        <a class="nav-buttons" href="#mobile">Aplicación móvil</a>
+        <a class="nav-buttons" href="#desk">Aplicación para escritorio</a>
+        <a class="nav-buttons" href="#how">Tecnologías de desarrollo</a>
+        <a class="nav-buttons" href="#multimedia">Multimedia</a>
       </div>
     </nav>
     <!-------------------- ABOUT US ---------------------------->
@@ -49,7 +40,7 @@
     <section id="mobile">
       <div class="container">
         <div>
-          <img src="landing/images/ionic-transparent.png" alt="">
+          <img src="landing/images/01_mainpage.png" height="250px" width="120px" alt="ionic">
         </div>
         <div class="text">
           Aplicación móvil diseñada para agilizar el día a día del especialista, con opción a añadir pacientes y citas
@@ -66,7 +57,7 @@
           citas, y la facturación mensual.
         </div>
         <div>
-          <img src="landing/images/angular.png" alt="">
+          <img src="landing/images/admin.png" height="500px" width="500px" alt="angular">
         </div>
       </div>
     </section>
@@ -74,7 +65,7 @@
     <section id="how">
       <div class="container">
         <div id="frameworks" class="container-tech">
-          Ionic & Angular
+          <div>Ionic & Angular</div>
           <div class="overlay container">
             <img src="landing/images/ionic-transparent.png" alt="Ionic">
             <div class="text">
@@ -85,7 +76,7 @@
           </div>
         </div>
         <div id="language" class="container-tech">
-          TypeScript
+          <div>TypeScript</div>
           <div class="overlay container">
             <img src="landing/images/Typescript_logo_2020.svg.png" alt="TypeScript" class="image">
             <div class="text">
@@ -95,7 +86,7 @@
           </div>
         </div>
         <div id="database" class="container-tech">
-          Firebase
+          <div>Firebase</div>
           <div class="overlay container">
             <img src="landing/images/firebase.png" alt="Firebase">
             <div class="text">
@@ -104,7 +95,7 @@
           </div>
         </div>
         <div id="python" class="container-tech">
-          Python
+          <div>Python</div>
           <div class="overlay container">
             <img src="landing/images/python-logo.png" alt="Python">
             <div class="text">
@@ -114,20 +105,28 @@
         </div>
       </div>
     </section>
-    <!-------------------- MEDITATION -------------------------->
-    <section id="meditation">
-      <div class="container">
-        <canvas id="myChart"></canvas>
-        <iframe src="https://www.youtube.com/embed/0VuWz9MirkI" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+    <!-------------------- MULTIMEDIA -------------------------->
+    <section id="multimedia">
+      <div class="media">
+        <video height="300px" id="tutorial" src="/README/Tutorial.mp4" controls></video>
+        <audio controls>
+          <source src="landing/mario-coin.mp3" type="audio/mpeg">
+        </audio>
+        <svg width="250" height="100">
+          <polygon points="125,10 175,130 75,135 245,10 175,130 75,130 1,10 175,130 75,130" style="fill:#3aa3ca; stroke:#346686;
+stroke-width:3" />
+        </svg>
+        <canvas height="200px" width="400px" id="myChart"></canvas>
       </div>
     </section>
     <!-------------------- FOOTER ---------------------------->
     <footer>
       <div class="container">
         <div class="info">
-          <p>Avda Andalucía 22, 1C</p>
+          <span class="material-icons">
+            location_on
+          </span>
+          <p>Avda. Andalucía 22, 1ºC</p>
           <p>952 28 64 94</p>
           <p>centrodepsicologianilo.com</p>
         </div>
@@ -137,7 +136,12 @@
           </span> Clínica Nilo 2022
         </div>
         <div class="info">
-          <p>Contacto:</p>
+          <span class="material-icons">
+            schedule
+          </span>
+          <p>Horario:</p>
+          <p>10:00 -20:00</p>
+          <p>L-V</p>
         </div>
       </div>
     </footer>
